@@ -1,0 +1,102 @@
+// Header
+.header {
+	min-height: 56px;
+	transition: min-height 0.3s;
+
+	@include minWidth(769px) {
+		display: grid;
+		grid-template-columns: 1fr 3fr;
+	}
+
+	// Header brand
+	&__brand {
+		width: 100%;
+		display: grid;
+		justify-content: center;
+
+		@include minWidth(769px) {
+			justify-content: start;
+			margin-left: 2.4rem;
+		}
+
+		@include minWidth(1025px) {
+			margin-left: 4.8rem;
+		}
+
+		// Brand title
+		.brand__title {
+			font-weight: 600;
+			font-size: 2.4rem;
+			margin: 1.6rem 0;
+			color: $dark;
+		}
+
+		// Navigation toggle
+		#nav__toggle {
+			font-size: 2.4rem;
+			font-weight: 600;
+			text-decoration: none;
+			color: $dark;
+			position: absolute;
+			top: 0.6rem;
+			right: 1rem;
+			padding: 1rem;
+
+			@include minWidth(769px) {
+				display: none;
+			}
+		}
+	}
+
+	// Header navigation
+	&__nav {
+		width: 100%;
+		display: grid;
+		align-items: center;
+
+		// Navigation list
+		.nav__list {
+			list-style-type: none;
+			display: flex;
+			justify-content: flex-end;
+
+			@include minWidth(769px) {
+				margin-right: 1.2rem;
+			}
+
+			@include minWidth(1025px) {
+				margin-right: 3rem;
+			}
+
+			@include maxWidth(768px) {
+				display: none;
+			}
+		}
+
+		// Navigation item
+		.nav__item {
+			text-transform: uppercase;
+
+			& a {
+				font-size: 1.6rem;
+				font-weight: 400;
+				text-decoration: none;
+				letter-spacing: 0.1rem;
+				color: $dark;
+				padding: 1.2rem;
+
+				@include minWidth(1025px) {
+					padding: 1.8rem;
+				}
+
+				&:hover {
+					color: $dark-hover;
+				}
+
+				&:active {
+					color: $dark;
+				}
+			}
+		}
+	}
+}
