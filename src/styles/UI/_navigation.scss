@@ -1,8 +1,5 @@
 // Header
 .header {
-	min-height: 56px;
-	transition: min-height 0.3s;
-
 	@include minWidth(769px) {
 		display: grid;
 		grid-template-columns: 1fr 3fr;
@@ -13,37 +10,65 @@
 		width: 100%;
 		display: grid;
 		justify-content: center;
+		background-color: $light-primary;
+		color: $light;
 
 		@include minWidth(769px) {
 			justify-content: start;
-			margin-left: 2.4rem;
+			padding-left: 2.4rem;
 		}
 
 		@include minWidth(1025px) {
-			margin-left: 4.8rem;
+			padding-left: 4.8rem;
 		}
 
 		// Brand title
 		.brand__title {
-			font-weight: 600;
+			font-family: 'Zilla Slab', serif;
+			font-weight: 300;
 			font-size: 2.4rem;
 			margin: 1.6rem 0;
-			color: $dark;
 		}
 
 		// Navigation toggle
-		#nav__toggle {
-			font-size: 2.4rem;
-			font-weight: 600;
-			text-decoration: none;
-			color: $dark;
+		.nav__toggle {
 			position: absolute;
-			top: 0.6rem;
-			right: 1rem;
+			top: 0.4rem;
+			left: 1rem;
 			padding: 1rem;
 
 			@include minWidth(769px) {
 				display: none;
+			}
+
+			.bar1,
+			.bar2,
+			.bar3 {
+				width: 2.4rem;
+				height: 0.3rem;
+				background-color: $light;
+				margin: 0.6rem 0;
+				transition: 0.3s;
+			}
+
+			&.change {
+				margin-top: 0.2rem;
+			}
+
+			&.change .bar1 {
+				width: 2.8rem;
+				transform: rotate(-45deg) translate(-0.5rem, 0.5rem);
+				color: black;
+			}
+
+			&.change .bar2 {
+				opacity: 0;
+				transition: 0.3s ease-in-out;
+			}
+
+			&.change .bar3 {
+				width: 2.8rem;
+				transform: rotate(45deg) translate(-0.75rem, -0.75rem);
 			}
 		}
 	}
@@ -51,6 +76,7 @@
 	// Header navigation
 	&__nav {
 		width: 100%;
+		background-color: $light-primary;
 		display: grid;
 		align-items: center;
 
@@ -71,30 +97,78 @@
 			@include maxWidth(768px) {
 				display: none;
 			}
+
+			// Navigation item
+			.nav__item {
+				text-transform: uppercase;
+
+				& a {
+					font-size: 1.6rem;
+					font-weight: 600;
+					text-decoration: none;
+					letter-spacing: 0.1rem;
+					color: $light;
+					padding: 1.2rem;
+
+					@include minWidth(1025px) {
+						padding: 1.8rem;
+					}
+
+					&:hover {
+						color: $light-hover;
+					}
+
+					&:active {
+						color: $light-active;
+					}
+				}
+			}
 		}
 
-		// Navigation item
-		.nav__item {
-			text-transform: uppercase;
+		// Navigation drawer
+		.nav__drawer {
+			position: fixed;
+			top: 6.1rem;
+			width: 100%;
+			height: 100%;
+			padding-bottom: 6.5rem;
+			background-color: $light-primary;
+			color: $light;
+			display: inline-flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			transform: translate(-100%, 0);
+			transition: transform 0.3s ease-in-out;
 
-			& a {
-				font-size: 1.6rem;
-				font-weight: 400;
-				text-decoration: none;
-				letter-spacing: 0.1rem;
-				color: $dark;
-				padding: 1.2rem;
+			@include minWidth(769px) {
+				display: none;
+			}
 
-				@include minWidth(1025px) {
-					padding: 1.8rem;
-				}
+			&.open {
+				transform: translate(0, 0);
+			}
 
-				&:hover {
-					color: $dark-hover;
-				}
+			&__item {
+				text-transform: uppercase;
+				padding: 1.25rem;
+				list-style-type: none;
 
-				&:active {
-					color: $dark;
+				& a {
+					font-size: 1.6rem;
+					font-weight: 600;
+					text-decoration: none;
+					letter-spacing: 0.1rem;
+					color: $light;
+					padding: 1.2rem;
+
+					@include minWidth(1025px) {
+						padding: 1.8rem;
+					}
+
+					&:active {
+						color: $light-active;
+					}
 				}
 			}
 		}
