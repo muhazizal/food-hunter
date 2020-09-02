@@ -3,26 +3,44 @@
 	padding: 0 2rem;
 	color: $dark;
 
+	@include minWidth(1025px) {
+		padding: 0 4.8rem;
+	}
+
 	// Restaurant label
 	&__label {
-		padding: 4rem 0;
+		font-size: 2.2rem;
+		padding: 5rem 0;
 		text-align: center;
+
+		@include minWidth(769px) {
+			font-size: 2.8rem;
+		}
 	}
 
 	// Restaurant list
 	&__list {
 		display: grid;
-		grid-template-columns: minmax(100%, 35rem);
-		justify-content: center;
+		grid-template-columns: 1fr;
+		justify-items: center;
+		gap: 3rem;
+
+		@include minWidth(769px) {
+			grid-template-columns: 1fr 1fr;
+		}
+
+		@include minWidth(1025px) {
+			grid-template-columns: repeat(4, 1fr);
+		}
 	}
 }
 
 // Restaurant item
 .restaurant {
 	width: 100%;
+	max-width: 45rem;
 	box-shadow: 0px 0.5rem 1.5rem 0px $light-shadow;
 	border-radius: 0.5rem;
-	margin-bottom: 4rem;
 
 	// Restaurant thumbnail
 	&__thumbnail {
