@@ -26,11 +26,11 @@
 			text-decoration: none;
 
 			@include minWidth(769px) {
-				padding-left: 2.4rem;
+				padding: 2.05rem 2.4rem;
 			}
 
 			@include minWidth(1025px) {
-				padding-left: 4.8rem;
+				padding: 2.05rem 4.8rem;
 			}
 		}
 

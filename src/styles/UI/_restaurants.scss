@@ -27,10 +27,12 @@
 
 		@include minWidth(769px) {
 			grid-template-columns: 1fr 1fr;
+			gap: 4rem;
 		}
 
 		@include minWidth(1025px) {
-			grid-template-columns: repeat(4, 1fr);
+			grid-template-columns: repeat(3, 1fr);
+			gap: 5rem;
 		}
 	}
 }
@@ -39,7 +41,7 @@
 .restaurant {
 	width: 100%;
 	max-width: 45rem;
-	box-shadow: 0px 0.5rem 1.5rem 0px $light-shadow;
+	box-shadow: 0px 0.2rem 0.6rem 0.2rem $light-shadow;
 	border-radius: 0.5rem;
 
 	// Restaurant thumbnail
@@ -51,21 +53,49 @@
 	// Restaurant image inside thumbnail
 	&__image {
 		width: 100%;
+		max-height: 20.4rem;
+		object-fit: cover;
 		border-radius: 0.5rem;
 	}
 
 	// Restaurant city inside thumbnail
 	&__city {
 		position: absolute;
-		top: 1rem;
+		top: 1.5rem;
 		left: 0;
 		padding: 1rem;
-		background-color: $light-secondary-variant;
+		background-color: $light-primary;
 		color: $light;
 	}
 
 	// Restaurant content
 	&__content {
-		padding: 1.2rem;
+		padding: 1.2rem 1.6rem;
+	}
+
+	&__name {
+		font-size: 2rem;
+		margin-bottom: 1.2rem;
+
+		@include minWidth(769px) {
+			font-size: 2.2rem;
+		}
+	}
+
+	&__rating {
+		margin-bottom: 1.2rem;
+	}
+
+	&__description {
+		font-size: 1.4rem;
+		word-spacing: 0.1rem;
+
+		@include minWidth(769px) {
+			font-size: 1.5rem;
+		}
+
+		@include minWidth(1025px) {
+			font-size: 1.6rem;
+		}
 	}
 }
