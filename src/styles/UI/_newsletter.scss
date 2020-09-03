@@ -1,0 +1,108 @@
+// Newsletter
+.newsletter {
+	background-color: $dark;
+	margin: 5rem 0;
+	padding: 5rem 2rem;
+	color: $light;
+
+	@include minWidth(769px) {
+		padding: 7.5rem 2rem;
+	}
+
+	// Newsletter label
+	&__label {
+		font-size: 2.2rem;
+		text-align: center;
+
+		@include minWidth(769px) {
+			font-size: 2.8rem;
+		}
+	}
+
+	// Newsletter tagline
+	&__tagline {
+		margin-top: 0.8rem;
+		font-size: 1.4rem;
+		font-weight: 400;
+		text-align: center;
+		color: $light-2;
+
+		@include minWidth(769px) {
+			font-size: 1.6rem;
+		}
+	}
+
+	&__brand {
+		font-family: 'Zilla Slab', serif;
+		font-weight: 300;
+		font-size: 1.8rem;
+		color: $dark-primary;
+	}
+
+	// Newsletter form
+	&__form {
+		margin-top: 3.2rem;
+
+		form {
+			display: grid;
+			justify-items: center;
+
+			@include minWidth(426px) {
+				grid-template-rows: 1fr;
+				grid-template-columns: minmax(25rem, 30rem) 12rem;
+				gap: 0.8rem;
+				justify-content: center;
+			}
+
+			#email {
+				padding: 1.6rem;
+				margin-bottom: 1.2rem;
+				width: 100%;
+				border-radius: 0.5rem;
+				border: 0;
+				outline: 0;
+				transition: box-shadow 0.3s ease-in-out;
+
+				@include minWidth(426px) {
+					margin-bottom: 0;
+					max-width: 35rem;
+				}
+			}
+
+			#emailError {
+				margin-bottom: 1.2rem;
+				font-size: 1.4rem;
+				justify-self: left;
+				display: none;
+			}
+
+			#subscribe {
+				width: 12rem;
+				padding: 1.6rem;
+				border-radius: 0.5rem;
+				border: 0;
+				background-color: $dark-secondary;
+				cursor: pointer;
+				outline: 0;
+				text-transform: uppercase;
+				font-weight: bold;
+				transition: background-color 0.3s ease-in-out;
+				grid-column: 2 / 3;
+
+				&:active {
+					background-color: $light-secondary-variant;
+				}
+
+				@include minWidth(769px) {
+					&:hover {
+						background-color: $light-secondary-variant;
+					}
+
+					&:active {
+						background-color: $dark-secondary;
+					}
+				}
+			}
+		}
+	}
+}

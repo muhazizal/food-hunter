@@ -1,10 +1,10 @@
 import data from '../../DATA.json';
 
 document.addEventListener('DOMContentLoaded', () => {
-	// Data restaurants from file DATA.json
+	// Init data restaurants from file DATA.json
 	const restaurants = data.restaurants;
 
-	// Restaurants container and restaurants list
+	// Init restaurants container and list
 	const restaurantsContainer = document.querySelector('#restaurants-list');
 	let restaurantsList = '';
 

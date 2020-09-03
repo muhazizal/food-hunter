@@ -6,3 +6,4 @@ import '../styles/main.scss';
 // Javascript UI components
 import './UI/navigation';
 import './UI/restaurants';
+import './UI/newsletters';

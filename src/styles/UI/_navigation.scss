@@ -11,6 +11,7 @@
 		justify-content: center;
 		background-color: $light;
 		color: $dark;
+		box-shadow: 0px 0.1rem 0.6rem rgba($color: $dark, $alpha: 0.7);
 
 		@include minWidth(769px) {
 			justify-content: start;
@@ -118,6 +119,7 @@
 					letter-spacing: 0.1rem;
 					color: $dark;
 					padding: 2.2rem 1.2rem;
+					transition: color 0.3s ease-in-out;
 
 					@include minWidth(1025px) {
 						padding: 2.4rem 1.8rem;

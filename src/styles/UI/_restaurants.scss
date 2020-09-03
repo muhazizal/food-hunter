@@ -64,15 +64,21 @@
 		top: 1.5rem;
 		left: 0;
 		padding: 1rem;
+		min-width: 9rem;
 		background-color: $light-primary;
+		font-weight: bold;
 		color: $light;
+		text-align: center;
+		border-top-right-radius: 0.5rem;
+		border-bottom-right-radius: 0.5rem;
 	}
 
 	// Restaurant content
 	&__content {
-		padding: 1.2rem 1.6rem;
+		padding: 1rem 1.6rem 1.6rem 1.6rem;
 	}
 
+	// Restaurant name
 	&__name {
 		font-size: 2rem;
 		margin-bottom: 1.2rem;
@@ -82,10 +88,12 @@
 		}
 	}
 
+	// Restaurant rating
 	&__rating {
 		margin-bottom: 1.2rem;
 	}
 
+	// Restaurant description
 	&__description {
 		font-size: 1.4rem;
 		word-spacing: 0.1rem;

@@ -5,11 +5,15 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Food Hunter</title>
+		<!-- Google Fonts Open Sans -->
 		<link
 			href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap"
 			rel="stylesheet"
 		/>
+		<!-- Google Fonts Zilla Slab -->
 		<link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@300&display=swap" rel="stylesheet" />
+		<!-- Goolge Fonts Material Icons  -->
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 	</head>
 	<body>
 		<header class="header">
@@ -25,7 +29,6 @@
 				<ul class="nav__list">
 					<li class="nav__item"><a href="">Home</a></li>
 					<li class="nav__item"><a href="#">Favorites</a></li>
-					<li class="nav__item"><a href="#">Reservations</a></li>
 					<li class="nav__item">
 						<a href="https://www.linkedin.com/in/muhamad-aziz-al-asaad-a7143218b/" target="_blank">About Us</a>
 					</li>
@@ -33,7 +36,6 @@
 				<ul class="nav__drawer">
 					<li class="nav__drawer__item"><a href="#">Home</a></li>
 					<li class="nav__drawer__item"><a href="#">Favorites</a></li>
-					<li class="nav__drawer__item"><a href="#">Reservations</a></li>
 					<li class="nav__drawer__item">
 						<a href="https://www.linkedin.com/in/muhamad-aziz-al-asaad-a7143218b/" target="_blank">About Us</a>
 					</li>
@@ -44,7 +46,7 @@
 			<div class="jumbotron__inner">
 				<h1 class="jumbotron__title">Best Restaurants Provide Good Foods</h1>
 				<p class="jumbotron__tagline">
-					Be wise to your healthy with choosing good and high quality foods at our restaurant
+					Be wise to your healthy with choosing good and high quality foods at our restaurants
 				</p>
 			</div>
 		</div>
@@ -55,7 +57,20 @@
 					<!-- Render restaurants from DATA.json -->
 				</div>
 			</section>
-			<section class="reservations"></section>
+			<section class="newsletter">
+				<h2 class="newsletter__label">Stay Updated</h2>
+				<p class="newsletter__tagline">
+					Get the lattest newsletters from <span class="newsletter__brand">Food Hunter</span> about the best
+					restaurants.
+				</p>
+				<div class="newsletter__form">
+					<form>
+						<input type="email" id="email" name="email" placeholder="ex. yourname@domain.com" />
+						<span id="emailError"></span>
+						<button id="subscribe">Subscribe</button>
+					</form>
+				</div>
+			</section>
 		</main>
 	</body>
 </html>
