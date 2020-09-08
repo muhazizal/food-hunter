@@ -91,6 +91,14 @@
 	// Restaurant rating
 	&__rating {
 		margin-bottom: 1.2rem;
+		display: flex;
+		align-content: center;
+		font-size: 1.8rem;
+
+		&--icon {
+			color: rgb(243, 243, 0);
+			margin-right: 0.4rem;
+		}
 	}
 
 	// Restaurant description

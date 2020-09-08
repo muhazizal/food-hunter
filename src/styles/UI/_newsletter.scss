@@ -1,7 +1,7 @@
 // Newsletter
 .newsletter {
 	background-color: $dark;
-	margin: 5rem 0;
+	margin: 5rem 0 0 0;
 	padding: 5rem 2rem;
 	color: $light;
 
@@ -45,12 +45,14 @@
 
 		form {
 			display: grid;
+			grid-template-rows: 1fr;
+			grid-template-columns: 1fr;
 			justify-items: center;
 
 			@include minWidth(426px) {
 				grid-template-rows: 1fr;
 				grid-template-columns: minmax(25rem, 30rem) 12rem;
-				gap: 0.8rem;
+				gap: 1.2rem;
 				justify-content: center;
 			}
 
@@ -74,10 +76,14 @@
 				font-size: 1.4rem;
 				justify-self: left;
 				display: none;
+
+				@include minWidth(426px) {
+					margin: 0;
+				}
 			}
 
 			#subscribe {
-				width: 12rem;
+				width: 100%;
 				padding: 1.6rem;
 				border-radius: 0.5rem;
 				border: 0;
@@ -87,7 +93,6 @@
 				text-transform: uppercase;
 				font-weight: bold;
 				transition: background-color 0.3s ease-in-out;
-				grid-column: 2 / 3;
 
 				&:active {
 					background-color: $light-secondary-variant;

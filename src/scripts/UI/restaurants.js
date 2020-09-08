@@ -19,7 +19,10 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
         <div class="restaurant__content">
           <h3 class="restaurant__name">${restaurant.name}</h3>
-          <p class="restaurant__rating">${restaurant.rating}</p>
+          <p class="restaurant__rating">
+            <span class="material-icons restaurant__rating--icon">star</span>
+            ${restaurant.rating}
+          </p>
           <p class="restaurant__description">${restaurant.description.replace(/^(.{200}[^\s]*).*/, '$1')}</p>
         </div>
       </div>
