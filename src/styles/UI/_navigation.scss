@@ -1,3 +1,18 @@
+// Link to main content
+.skip-link {
+	position: absolute;
+	top: -4.5rem;
+	left: 44vw;
+	background-color: #314256;
+	color: white;
+	padding: 10px;
+	z-index: 100;
+}
+
+.skip-link:focus {
+	top: 0;
+}
+
 // Header
 .header {
 	position: relative;

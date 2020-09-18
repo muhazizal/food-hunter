@@ -12,20 +12,20 @@ document.addEventListener('DOMContentLoaded', () => {
 	restaurants.forEach(restaurant => {
 		// Store data restaurants to restaurants list,
 		restaurantsList += `
-      <div class="restaurant">
+      <article class="restaurant">
         <div class="restaurant__thumbnail">
           <img class="restaurant__image" src="${restaurant.pictureId}" alt="${restaurant.name} Image" />
           <p class="restaurant__city">${restaurant.city}</p>
         </div>
         <div class="restaurant__content">
-          <h3 class="restaurant__name">${restaurant.name}</h3>
+          <h3 class="restaurant__name"><a href="#">${restaurant.name}</a></h3>
           <p class="restaurant__rating">
             <span class="material-icons restaurant__rating--icon">star</span>
             ${restaurant.rating}
           </p>
           <p class="restaurant__description">${restaurant.description.replace(/^(.{200}[^\s]*).*/, '$1')}</p>
         </div>
-      </div>
+      </article>
     `;
 	});
 
