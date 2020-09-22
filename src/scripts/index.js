@@ -4,6 +4,6 @@ import 'regenerator-runtime'; /* for async await transpile */
 import '../styles/main.scss';
 
 // Javascript UI components
-import './UI/navigation';
-import './UI/restaurants';
-import './UI/newsletters';
+import './components/navigation';
+import './components/restaurants';
+import './components/newsletters';
