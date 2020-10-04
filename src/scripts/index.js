@@ -1,9 +1,22 @@
 import 'regenerator-runtime'; /* for async await transpile */
-
-// Main styles scss
 import '../styles/main.scss';
+import App from './views/app';
 
 // Javascript UI components
-import './components/navigation';
 import './components/restaurants';
 import './components/newsletters';
+
+const app = new App({
+	toggle: document.querySelector('.nav__toggle'),
+	drawer: document.querySelector('.nav__drawer'),
+	drawerItems: document.querySelectorAll('.nav__drawer__item'),
+	content: document.querySelector('#main-content'),
+});
+
+window.addEventListener('hashchange', () => {
+	app.renderPage();
+});
+
+window.addEventListener('load', () => {
+	app.renderPage();
+});

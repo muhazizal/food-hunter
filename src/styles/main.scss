@@ -38,7 +38,7 @@ footer {
 	font-family: 'Zilla Slab', serif;
 }
 
-@import './UI/navigation';
-@import './UI/jumbotron';
-@import './UI/restaurants';
-@import './UI/newsletter';
+@import './components/navigation';
+@import './components/jumbotron';
+@import './components/restaurants';
+@import './components/newsletter';

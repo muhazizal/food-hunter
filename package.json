@@ -6,6 +6,7 @@
 	"scripts": {
 		"dev": "webpack-dev-server --config webpack.dev.js --open",
 		"build": "webpack --config webpack.prod.js",
+		"lint": "eslint ./src",
 		"test": "karma start"
 	},
 	"keywords": [],
@@ -18,7 +19,9 @@
 		"clean-webpack-plugin": "^3.0.0",
 		"copy-webpack-plugin": "^6.0.3",
 		"css-loader": "^3.6.0",
-		"eslint": "^7.4.0",
+		"eslint": "^7.10.0",
+		"eslint-config-airbnb-base": "^14.2.0",
+		"eslint-plugin-import": "^2.22.1",
 		"favicons-webpack-plugin": "^4.2.0",
 		"fibers": "^5.0.0",
 		"file-loader": "^6.0.0",

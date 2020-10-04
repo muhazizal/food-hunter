@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	let restaurantsList = '';
 
 	// Looping through data restaurants
-	restaurants.forEach(restaurant => {
+	restaurants.forEach((restaurant) => {
 		// Store data restaurants to restaurants list,
 		restaurantsList += `
       <article class="restaurant">
