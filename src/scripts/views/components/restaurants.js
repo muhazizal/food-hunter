@@ -1,5 +1,5 @@
-import data from '../../../DATA.json';
 import styleText from '../../../styles/components/restaurants.scss';
+import API_ENDPOINT from '../../globals/api-endpoint';
 
 class Restaurants extends HTMLElement {
 	constructor() {
@@ -24,31 +24,6 @@ class Restaurants extends HTMLElement {
         </div>
       </section>
     `;
-
-		const dataRestaurants = data.restaurants;
-		const restaurantsContainer = this.shadowDOM.querySelector('#restaurants-list');
-		let restaurantsList = '';
-
-		dataRestaurants.forEach((restaurant) => {
-			restaurantsList += `
-        <article class="restaurant">
-          <div class="restaurant__thumbnail">
-            <img class="restaurant__image" src="${restaurant.pictureId}" alt="${restaurant.name} Image" />
-            <p class="restaurant__city">${restaurant.city}</p>
-          </div>
-          <div class="restaurant__content">
-            <h3 class="restaurant__name"><a href="#">${restaurant.name}</a></h3>
-            <p class="restaurant__rating">
-              <img class="restaurant__rating--icon" src="/images/icons/star.png" alt"star-img">
-              ${restaurant.rating}
-            </p>
-            <p class="restaurant__description">${restaurant.description.replace(/^(.{200}[^\s]*).*/, '$1')}</p>
-          </div>
-        </article>
-      `;
-		});
-
-		restaurantsContainer.innerHTML = restaurantsList;
 	}
 
 	_renderStyle() {
@@ -58,6 +33,35 @@ class Restaurants extends HTMLElement {
 		styleRestaurants.appendChild(document.createTextNode(styleText));
 
 		this.shadowRoot.appendChild(styleRestaurants);
+	}
+
+	renderData(restaurants) {
+		const restaurantsList = this.shadowDOM.querySelector('#restaurants-list');
+
+		restaurants.forEach((restaurant) => {
+			restaurantsList.innerHTML += `
+        <article class="restaurant">
+          <div class="restaurant__thumbnail">
+						<img class="restaurant__image" 
+							src="${API_ENDPOINT.RESTAURANT_PICTURES.MEDIUM(restaurant.pictureId)}" 
+							alt="${restaurant.name} Image" 
+						/>
+            <p class="restaurant__city">${restaurant.city}</p>
+          </div>
+          <div class="restaurant__content">
+            <h3 class="restaurant__name"><a href="#">${restaurant.name}</a></h3>
+            <p class="restaurant__rating">
+              <img class="restaurant__rating--icon" src="/images/icons/star.png" alt"star-img">
+              ${restaurant.rating}
+            </p>
+            <p class="restaurant__description">${restaurant.description.replace(/^(.{150}[^\s]*).*/, '$1')}</p>
+					</div>
+					<div class="restaurant__action">
+						<a href="${API_ENDPOINT.RESTAURANT_DETAIL(restaurant.id)}">Detail Restaurant</a>
+					</div>
+        </article>
+      `;
+		});
 	}
 }
 

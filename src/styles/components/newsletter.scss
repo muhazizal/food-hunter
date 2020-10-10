@@ -97,20 +97,16 @@
 				outline: 0;
 				text-transform: uppercase;
 				font-weight: bold;
+				font-family: 'Open Sans';
+				font-size: 1.4rem;
 				transition: background-color 0.3s ease-in-out;
 
-				&:active {
+				&:hover {
 					background-color: $light-secondary-variant;
 				}
 
-				@include minWidth(769px) {
-					&:hover {
-						background-color: $light-secondary-variant;
-					}
-
-					&:active {
-						background-color: $dark-secondary;
-					}
+				&:active {
+					background-color: $dark-secondary;
 				}
 			}
 		}

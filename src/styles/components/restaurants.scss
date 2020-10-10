@@ -26,16 +26,18 @@
 		display: grid;
 		grid-template-columns: 1fr;
 		justify-items: center;
-		gap: 3rem;
+		gap: 2rem;
 
-		@include minWidth(769px) {
+		@include minWidth(601px) {
 			grid-template-columns: 1fr 1fr;
-			gap: 4rem;
 		}
 
-		@include minWidth(1025px) {
+		@include minWidth(920px) {
 			grid-template-columns: repeat(3, 1fr);
-			gap: 5rem;
+		}
+
+		@include minWidth(1365px) {
+			grid-template-columns: repeat(4, 1fr);
 		}
 	}
 }
@@ -43,7 +45,6 @@
 // Restaurant item
 .restaurant {
 	width: 100%;
-	max-width: 45rem;
 	box-shadow: 0px 0.2rem 0.6rem 0.2rem $light-shadow;
 	border-radius: 0.5rem;
 
@@ -56,7 +57,7 @@
 	// Restaurant image
 	&__image {
 		width: 100%;
-		max-height: 20.4rem;
+		height: 20rem;
 		object-fit: cover;
 		border-radius: 0.5rem;
 	}
@@ -79,7 +80,7 @@
 
 	// Restaurant content
 	&__content {
-		padding: 1rem 1.6rem 1.6rem 1.6rem;
+		padding: 1rem 1.6rem;
 	}
 
 	// Restaurant name
@@ -118,13 +119,30 @@
 		word-spacing: 0.1rem;
 		text-align: justify;
 		margin: 1rem 0;
+	}
 
-		@include minWidth(769px) {
-			font-size: 1.5rem;
-		}
+	&__action {
+		padding: 1.6rem 1.6rem;
+		margin-bottom: 2rem;
+		text-align: center;
 
-		@include minWidth(1025px) {
-			font-size: 1.6rem;
+		a {
+			background-color: $dark-secondary;
+			padding: 1.6rem;
+			font-size: 1.4rem;
+			text-decoration: none;
+			color: $dark;
+			font-weight: bold;
+			border-radius: 0.5rem;
+			transition: background-color 0.3s ease-in-out;
+
+			&:hover {
+				background-color: $light-secondary-variant;
+			}
+
+			&:active {
+				background-color: $dark-secondary;
+			}
 		}
 	}
 }
