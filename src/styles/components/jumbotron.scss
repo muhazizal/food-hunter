@@ -1,4 +1,6 @@
-// Jumbotron
+@import '../variables';
+@import '../mixins';
+
 .jumbotron {
 	height: calc(100vh - 7rem);
 	width: 100%;
@@ -18,14 +20,13 @@
 		justify-content: center;
 		text-align: center;
 		background-color: rgba($color: $dark, $alpha: 0.8);
-		padding: 0 2rem;
 	}
 
 	// Jumbotron title
 	&__title {
 		font-size: 2.6rem;
 		font-weight: 400;
-		margin-bottom: 1.2rem;
+		margin: 1.2rem 2rem;
 
 		@include minWidth(769px) {
 			font-size: 3.2rem;
@@ -41,6 +42,7 @@
 		font-size: 1.4rem;
 		font-weight: 400;
 		color: $light-2;
+		margin: 1.2rem 2rem;
 
 		@include minWidth(769px) {
 			font-size: 1.6rem;

@@ -5,9 +5,7 @@
 	"main": "index.js",
 	"scripts": {
 		"dev": "webpack-dev-server --config webpack.dev.js --open",
-		"build": "webpack --config webpack.prod.js",
-		"lint": "eslint ./src",
-		"test": "karma start"
+		"build": "webpack --config webpack.prod.js"
 	},
 	"keywords": [],
 	"author": "muhazizal <muhazizal.26@gmail.com>",
@@ -18,12 +16,10 @@
 		"babel-loader": "^8.1.0",
 		"clean-webpack-plugin": "^3.0.0",
 		"copy-webpack-plugin": "^6.0.3",
-		"css-loader": "^3.6.0",
+		"css-loader": "^4.3.0",
 		"eslint": "^7.10.0",
 		"eslint-config-airbnb-base": "^14.2.0",
 		"eslint-plugin-import": "^2.22.1",
-		"favicons-webpack-plugin": "^4.2.0",
-		"fibers": "^5.0.0",
 		"file-loader": "^6.0.0",
 		"html-webpack-plugin": "^4.3.0",
 		"jasmine-ajax": "^4.0.0",
@@ -34,6 +30,7 @@
 		"karma-jasmine": "^3.3.1",
 		"karma-sourcemap-loader": "^0.3.7",
 		"karma-webpack": "^4.0.2",
+		"raw-loader": "^4.0.1",
 		"sass": "^1.26.10",
 		"sass-loader": "^10.0.1",
 		"style-loader": "^1.2.1",
@@ -45,6 +42,6 @@
 		"whatwg-fetch": "^3.2.0"
 	},
 	"dependencies": {
-		"regenerator-runtime": "^0.13.5"
+		"regenerator-runtime": "^0.13.7"
 	}
 }

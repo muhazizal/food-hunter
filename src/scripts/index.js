@@ -2,10 +2,6 @@ import 'regenerator-runtime'; /* for async await transpile */
 import '../styles/main.scss';
 import App from './views/app';
 
-// Javascript UI components
-import './components/restaurants';
-import './components/newsletters';
-
 const app = new App({
 	toggle: document.querySelector('.nav__toggle'),
 	drawer: document.querySelector('.nav__drawer'),

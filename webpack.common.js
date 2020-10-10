@@ -2,7 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
+const dartSass = require('sass');
 
 module.exports = {
 	entry: path.resolve(__dirname, 'src/scripts/index.js'),
@@ -12,9 +12,25 @@ module.exports = {
 	},
 	module: {
 		rules: [
-			// Sass / Scss loader
+			// Style loader
 			{
 				test: /\.s[ac]ss$/i,
+				exclude: path.resolve(__dirname, 'src/styles/main.scss'),
+				use: [
+					'raw-loader',
+					{
+						loader: 'sass-loader',
+						options: {
+							sassOptions: {
+								includePaths: [path.resolve(__dirname, 'node_modules')],
+							},
+						},
+					},
+				],
+			},
+			{
+				test: /\.(s[ac]ss|css)$/i,
+				exclude: path.resolve(__dirname, 'src/styles/components'),
 				use: [
 					'style-loader',
 					'css-loader',
@@ -22,22 +38,19 @@ module.exports = {
 						loader: 'sass-loader',
 						options: {
 							// Prefer `dart-sass`
-							implementation: require('sass'),
-							sassOptions: {
-								fiber: false,
-							},
+							implementation: dartSass,
 						},
 					},
 				],
 			},
-			// File loader for images
+			// File loader
 			{
-				test: /\.(png|svg|jpg|jpeg|gif)$/,
-				use: ['file-loader'],
+				test: /\.(png|svg|jpg|jpeg|gif)$/i,
+				loader: 'file-loader',
 			},
-			// Url loader for images
+			// Url loader
 			{
-				test: /\.(png|svg|jpg|jpeg|gif)$/,
+				test: /\.(png|svg|jpg|jpeg|gif)$/i,
 				use: ['url-loader'],
 			},
 		],
@@ -47,6 +60,8 @@ module.exports = {
 		new HtmlWebpackPlugin({
 			template: path.resolve(__dirname, 'src/templates/index.html'),
 			filename: 'index.html',
+			favicon: './src/public/images/favicon.jpg',
+			inject: true,
 		}),
 		new CopyWebpackPlugin({
 			patterns: [
@@ -55,9 +70,6 @@ module.exports = {
 					to: path.resolve(__dirname, 'dist/'),
 				},
 			],
-		}),
-		new FaviconsWebpackPlugin({
-			logo: path.resolve(__dirname, 'src/public/images/icons/logo.jpg'),
 		}),
 	],
 };
