@@ -1,4 +1,4 @@
-import stylesText from '../../../styles/components/jumbotron.scss';
+import stylesText from '../../../../styles/components/home/jumbotron.scss';
 
 class Jumbotron extends HTMLElement {
 	constructor() {

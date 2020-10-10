@@ -1,4 +1,4 @@
-import styleText from '../../../styles/components/newsletter.scss';
+import styleText from '../../../../styles/components/home/newsletter.scss';
 
 class Newsletter extends HTMLElement {
 	constructor() {
