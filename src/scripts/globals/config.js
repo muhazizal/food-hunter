@@ -1,5 +1,5 @@
 const CONFIG = {
-	BASE_URL: 'https://dicoding-restaurant-api.el.r.appspot.com/',
+	BASE_URL: 'https://restaurant-api.dicoding.dev//',
 };
 
 export default CONFIG;

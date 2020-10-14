@@ -2,7 +2,6 @@ import RestaurantsSource from '../../data/restaurants-source';
 import '../components/home/jumbotron';
 import '../components/home/restaurants';
 import '../components/home/newsletters';
-import '../components/footer';
 
 const Home = {
 	async render() {
@@ -14,9 +13,14 @@ const Home = {
 	},
 
 	async afterRender() {
-		const restaurants = document.querySelector('home-restaurants');
-		const restaurantsList = await RestaurantsSource.restaurantsList();
-		restaurants.renderData(restaurantsList);
+		const restaurantsList = document.querySelector('home-restaurants');
+
+		try {
+			const dataRestaurants = await RestaurantsSource.restaurantsList();
+			restaurantsList.restaurants = dataRestaurants;
+		} catch (error) {
+			console.log(error);
+		}
 	},
 };
 

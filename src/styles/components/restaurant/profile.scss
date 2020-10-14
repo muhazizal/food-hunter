@@ -1,0 +1,58 @@
+@import '../../mixins';
+@import '../../variables';
+
+.profile {
+	width: 100%;
+	margin-top: 7rem;
+	color: $dark;
+
+	&__thumbnail {
+		width: 100%;
+		position: relative;
+	}
+
+	// Restaurant image
+	&__image {
+		width: 100%;
+	}
+
+	// Restaurant city
+	&__city {
+		position: absolute;
+		top: 1.5rem;
+		left: 0;
+		padding: 1rem;
+		margin: 0;
+		min-width: 9rem;
+		background-color: $light-primary;
+		font-weight: bold;
+		color: $light;
+		text-align: center;
+		border-top-right-radius: 0.5rem;
+		border-bottom-right-radius: 0.5rem;
+	}
+
+	&__content {
+		padding: 0 2rem;
+		margin: 1rem 0;
+	}
+
+	&__name {
+		margin: 0;
+		font-size: 2rem;
+	}
+
+	&__icon {
+		margin-right: 1rem;
+		width: 2.4rem;
+		height: 2.4rem;
+	}
+
+	&__rating,
+	&__category,
+	&__address {
+		display: flex;
+		align-items: center;
+		margin: 1.2rem 0 0 0;
+	}
+}

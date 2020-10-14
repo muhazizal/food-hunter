@@ -62,7 +62,7 @@
 
 			#email {
 				box-sizing: border-box;
-				padding: 1.6rem;
+				padding: 1.3rem;
 				margin-bottom: 1.2rem;
 				width: 100%;
 				border-radius: 0.5rem;
@@ -89,14 +89,14 @@
 
 			#subscribe {
 				width: 100%;
-				padding: 1.6rem;
+				padding: 1.3rem;
 				border-radius: 0.5rem;
 				border: 0;
 				background-color: $dark-secondary;
 				cursor: pointer;
 				outline: 0;
 				text-transform: uppercase;
-				font-weight: bold;
+				font-weight: 600;
 				font-family: 'Open Sans';
 				font-size: 1.4rem;
 				transition: background-color 0.3s ease-in-out;

@@ -1,0 +1,30 @@
+@import '../../mixins';
+@import '../../variables';
+
+.menu {
+	color: $dark;
+	width: calc(100% - 4rem);
+	margin: 5rem 2rem 0 2rem;
+	display: flex;
+	flex-direction: column;
+
+	&__title {
+		margin: 0;
+		font-size: 2.2rem;
+		text-align: center;
+	}
+
+	&__foods,
+	&__drinks {
+		h3 {
+			margin: 1.2rem 0 0 0;
+			font-size: 2rem;
+		}
+
+		ul {
+			margin: 0;
+			list-style: circle;
+			padding-left: 3.2rem;
+		}
+	}
+}

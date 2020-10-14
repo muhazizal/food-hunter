@@ -1,4 +1,7 @@
-class RestaurantItem extends HTMLElement {
+import styleText from '../../../../styles/components/restaurant/profile.scss';
+import API_ENDPOINT from '../../../globals/api-endpoint';
+
+class RestaurantProfile extends HTMLElement {
 	constructor() {
 		super();
 		this.shadowDOM = this.attachShadow({
@@ -6,17 +9,63 @@ class RestaurantItem extends HTMLElement {
 		});
 	}
 
-	connectedCallback() {
+	set restaurant(restaurant) {
+		this._restaurant = restaurant;
 		this._renderTemplate();
+		this._renderStyle();
+		this._restaurantCategory();
 	}
 
 	_renderTemplate() {
 		this.shadowDOM.innerHTML = `
-      <section class="profile">
-        
+			<section class="profile">
+				<div class="profile__thumbnail">
+					<img class="profile__image"
+						src="${API_ENDPOINT.RESTAURANT_PICTURES.MEDIUM(this._restaurant.pictureId)}" 
+						alt="${this._restaurant.name} Image"
+					/>
+					<p class="profile__city">${this._restaurant.city}</p>
+				</div>
+				<div class="profile__content">
+					<h2 class="profile__name">${this._restaurant.name}</h2>
+					<p class="profile__rating">
+						<img class="profile__icon" src="/images/icons/star.svg" alt"star-icon">
+						${this._restaurant.rating}
+					</p>
+					<p class="profile__category">
+						<img class="profile__icon" src="/images/icons/category.svg" alt"menu-icon">
+					</p>
+					<p class="profile__address">
+						<img class="profile__icon" src="/images/icons/address.svg" alt="address-icon">
+						${this._restaurant.address}
+					</p>
+				</div>
       </section>
-    `;
+		`;
+	}
+
+	_renderStyle() {
+		const styleProfile = document.createElement('style');
+		styleProfile.type = 'text/css';
+		styleProfile.appendChild(document.createTextNode(styleText));
+
+		this.shadowDOM.appendChild(styleProfile);
+	}
+
+	_restaurantCategory() {
+		const restaurantCategory = this.shadowDOM.querySelector('.profile__category');
+		let i = 1;
+
+		this._restaurant.categories.forEach((menu) => {
+			if (this._restaurant.categories.length === i) {
+				restaurantCategory.innerHTML += `${menu.name}`;
+			} else {
+				restaurantCategory.innerHTML += `${menu.name}, `;
+			}
+
+			i += 1;
+		});
 	}
 }
 
-customElements.define('restaurant-item', RestaurantItem);
+customElements.define('restaurant-profile', RestaurantProfile);

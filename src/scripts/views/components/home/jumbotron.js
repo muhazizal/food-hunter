@@ -17,7 +17,7 @@ class Jumbotron extends HTMLElement {
 		this.shadowDOM.innerHTML = `
       <section class="jumbotron">
         <div class="jumbotron__inner">
-          <h1 class="jumbotron__title">Best Restaurants Provide Good Foods</h1>
+          <h2 class="jumbotron__title">Best Restaurants Provide Good Foods</h2>
           <p class="jumbotron__tagline">
             Be wise to your healthy with choosing good and high quality foods at our restaurants
           </p>

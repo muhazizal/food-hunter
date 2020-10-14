@@ -14,6 +14,11 @@ class Restaurants extends HTMLElement {
 		this._renderStyle();
 	}
 
+	set restaurants(restaurants) {
+		this._restaurants = restaurants;
+		this._renderData();
+	}
+
 	_renderTemplate() {
 		this.shadowDOM.innerHTML = `
       <section class="restaurants">
@@ -33,10 +38,10 @@ class Restaurants extends HTMLElement {
 		this.shadowRoot.appendChild(styleRestaurants);
 	}
 
-	renderData(restaurants) {
+	_renderData() {
 		const restaurantsList = this.shadowDOM.querySelector('#restaurants-list');
 
-		restaurants.forEach((restaurant) => {
+		this._restaurants.forEach((restaurant) => {
 			restaurantsList.innerHTML += `
         <article class="restaurant">
           <div class="restaurant__thumbnail">
@@ -51,7 +56,7 @@ class Restaurants extends HTMLElement {
 							<a href="/#/restaurant/${restaurant.id}">${restaurant.name}</a>
 						</h3>
             <p class="restaurant__rating">
-              <img class="restaurant__rating--icon" src="/images/icons/star.png" alt"star-img">
+              <img class="restaurant__rating--icon" src="/images/icons/star.svg" alt"star-img">
               ${restaurant.rating}
             </p>
             <p class="restaurant__description">${restaurant.description.replace(/^(.{150}[^\s]*).*/, '$1')}</p>

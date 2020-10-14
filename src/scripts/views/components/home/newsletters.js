@@ -11,7 +11,7 @@ class Newsletter extends HTMLElement {
 	connectedCallback() {
 		this._renderTemplate();
 		this._renderStyle();
-		this._formUserFeedback();
+		this._formFeedback();
 	}
 
 	_renderTemplate() {
@@ -40,7 +40,7 @@ class Newsletter extends HTMLElement {
 		this.shadowDOM.appendChild(styleNewsletter);
 	}
 
-	_formUserFeedback() {
+	_formFeedback() {
 		const emailInput = this.shadowDOM.querySelector('#email');
 		const emailError = this.shadowDOM.querySelector('#emailError');
 		const subscribe = this.shadowDOM.querySelector('#subscribe');

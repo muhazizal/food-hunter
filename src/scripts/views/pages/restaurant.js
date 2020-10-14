@@ -1,18 +1,30 @@
 import UrlParser from '../../routes/url-parser';
 import RestaurantsSource from '../../data/restaurants-source';
 import '../components/restaurant/profile';
+import '../components/restaurant/menu';
+import '../components/restaurant/review';
 
 const Restaurant = {
 	async render() {
 		return `
-      <restaurant-profile></restaurant-profile>
+			<restaurant-profile></restaurant-profile>
+			<restaurant-menu></restaurant-menu>
+			<restaurant-review></restaurant-review>
     `;
 	},
 
 	async afterRender() {
 		const url = UrlParser.parseActiveUrlWithoutCombiner();
-		const restaurant = await RestaurantsSource.restaurantDetail(url.id);
-		console.log(restaurant);
+		const restaurantProfile = document.querySelector('restaurant-profile');
+		const restaurantMenu = document.querySelector('restaurant-menu');
+
+		try {
+			const dataRestaurant = await RestaurantsSource.restaurantDetail(url.id);
+			restaurantProfile.restaurant = dataRestaurant;
+			restaurantMenu.menu = dataRestaurant.menus;
+		} catch (error) {
+			console.log(error);
+		}
 	},
 };
 
