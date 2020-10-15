@@ -55,8 +55,8 @@ class Restaurants extends HTMLElement {
 						<h3 class="restaurant__name">
 							<a href="/#/restaurant/${restaurant.id}">${restaurant.name}</a>
 						</h3>
-            <p class="restaurant__rating">
-              <img class="restaurant__rating--icon" src="/images/icons/star.svg" alt"star-img">
+						<p class="restaurant__rating">
+							<i class="material-icons">star</i>
               ${restaurant.rating}
             </p>
             <p class="restaurant__description">${restaurant.description.replace(/^(.{150}[^\s]*).*/, '$1')}</p>

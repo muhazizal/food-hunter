@@ -9,7 +9,6 @@
 
 	&__thumbnail {
 		width: 100%;
-		position: relative;
 	}
 
 	// Restaurant image
@@ -17,25 +16,39 @@
 		width: 100%;
 	}
 
-	// Restaurant city
-	&__city {
+	.btn--favorite {
+		padding: 1.2rem;
+		width: 5.6rem;
+		height: 5.6rem;
+		border-radius: 50%;
+		border: 0;
+		background-color: $light-secondary;
+		cursor: pointer;
+		outline: 0;
+		transition: background-color 0.3s ease-in-out;
+		z-index: 10;
 		position: absolute;
-		top: 1.5rem;
-		left: 0;
-		padding: 1rem;
-		margin: 0;
-		min-width: 9rem;
-		background-color: $light-primary;
-		font-weight: bold;
-		color: $light;
-		text-align: center;
-		border-top-right-radius: 0.5rem;
-		border-bottom-right-radius: 0.5rem;
+		top: 4.1rem;
+		right: 2rem;
+		box-shadow: 0px 0rem 0.6rem 0.1rem $light-shadow;
+
+		&:hover {
+			background-color: $light-secondary-variant;
+		}
+
+		&:active {
+			background-color: $dark-secondary;
+		}
+
+		i {
+			font-size: 3.2rem;
+		}
 	}
 
 	&__content {
 		padding: 0 2rem;
 		margin: 1rem 0;
+		position: relative;
 	}
 
 	&__name {

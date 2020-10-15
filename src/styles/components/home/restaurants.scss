@@ -1,5 +1,6 @@
 @import '../../variables';
 @import '../../mixins';
+@import '../../mdi';
 
 // Restaurant container
 .restaurants {
@@ -106,10 +107,9 @@
 		align-content: center;
 		font-size: 1.8rem;
 
-		&--icon {
+		i {
 			margin-right: 1rem;
-			width: 24px;
-			height: 24px;
+			color: $yellow;
 		}
 	}
 

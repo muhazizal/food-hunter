@@ -24,7 +24,6 @@ class RestaurantProfile extends HTMLElement {
 						src="${API_ENDPOINT.RESTAURANT_PICTURES.MEDIUM(this._restaurant.pictureId)}" 
 						alt="${this._restaurant.name} Image"
 					/>
-					<p class="profile__city">${this._restaurant.city}</p>
 				</div>
 				<div class="profile__content">
 					<h2 class="profile__name">${this._restaurant.name}</h2>
@@ -39,8 +38,11 @@ class RestaurantProfile extends HTMLElement {
 						<i class="material-icons">place</i>
 						${this._restaurant.address}
 					</p>
+					<button class="btn--favorite">
+						<i class="material-icons">favorite_border</i>
+					</button>
 				</div>
-      </section>
+			</section>
 		`;
 	}
 

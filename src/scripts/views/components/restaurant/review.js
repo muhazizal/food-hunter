@@ -25,8 +25,13 @@ class Review extends HTMLElement {
               <p>Odading Mang Oleh</p>
             </div>
             <div class="review__rating">
-              <img src="/images/icons/star.svg">
-              <p>4.1</p>
+              <div class="rating__icons">
+                <i class="material-icons">star</i>
+                <i class="material-icons">star</i>
+                <i class="material-icons">star</i>
+                <i class="material-icons">star</i>
+                <i class="material-icons">star</i>
+              </div>
             </div>
             <blockquote class="review__content">
               "Makanannya enak, nggak kuat lagi, mantab djiwa, rasanya anjim bangetttttttt"
