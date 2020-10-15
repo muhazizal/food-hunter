@@ -7,8 +7,19 @@
 	margin-top: 7rem;
 	color: $dark;
 
+	@include minWidth(601px) {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+
 	&__thumbnail {
 		width: 100%;
+
+		@include minWidth(601px) {
+			padding: 5rem 0 0 0;
+			width: 50vw;
+		}
 	}
 
 	// Restaurant image
@@ -43,12 +54,24 @@
 		i {
 			font-size: 3.2rem;
 		}
+
+		@include minWidth(601px) {
+			position: inherit;
+			top: 1.2rem;
+			right: 0;
+		}
 	}
 
 	&__content {
 		padding: 0 2rem;
 		margin: 1rem 0;
 		position: relative;
+
+		@include minWidth(601px) {
+			margin: 5rem 0 0 0;
+			height: 20.25rem;
+			padding: 0 0 0 2rem;
+		}
 	}
 
 	&__name {
