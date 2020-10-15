@@ -29,14 +29,14 @@ class RestaurantProfile extends HTMLElement {
 				<div class="profile__content">
 					<h2 class="profile__name">${this._restaurant.name}</h2>
 					<p class="profile__rating">
-						<img class="profile__icon" src="/images/icons/star.svg" alt"star-icon">
+						<i class="material-icons star">star</i>
 						${this._restaurant.rating}
 					</p>
 					<p class="profile__category">
-						<img class="profile__icon" src="/images/icons/category.svg" alt"menu-icon">
+						<i class="material-icons category">restaurant_menu</i>
 					</p>
 					<p class="profile__address">
-						<img class="profile__icon" src="/images/icons/address.svg" alt="address-icon">
+						<i class="material-icons">place</i>
 						${this._restaurant.address}
 					</p>
 				</div>

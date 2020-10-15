@@ -5,10 +5,13 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const dartSass = require('sass');
 
 module.exports = {
-	entry: path.resolve(__dirname, 'src/scripts/index.js'),
+	entry: {
+		main: path.resolve(__dirname, 'src/scripts/index.js'),
+		vendors: ['webpack-material-design-icons'],
+	},
 	output: {
+		filename: '[name].js',
 		path: path.resolve(__dirname, 'dist'),
-		filename: 'bundle.js',
 	},
 	module: {
 		rules: [
@@ -45,8 +48,11 @@ module.exports = {
 			},
 			// File loader
 			{
-				test: /\.(png|svg|jpg|jpeg|gif)$/i,
+				test: /\.(jpe?g|png|gif|svg|eot|woff|ttf|svg|woff2)$/,
 				loader: 'file-loader',
+				options: {
+					name: '[name].[ext]',
+				},
 			},
 			// Url loader
 			{
