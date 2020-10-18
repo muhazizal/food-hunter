@@ -52,4 +52,26 @@
 			font-size: 1.8rem;
 		}
 	}
+
+	&__button {
+		margin-top: 4rem;
+		padding: 1.3rem;
+		border-radius: 0.5rem;
+		border: 0;
+		background-color: $dark-secondary;
+		cursor: pointer;
+		outline: 0;
+		font-weight: 600;
+		font-family: 'Open Sans';
+		font-size: 1.4rem;
+		transition: background-color 0.3s ease-in-out;
+
+		&:hover {
+			background-color: $light-secondary-variant;
+		}
+
+		&:active {
+			background-color: $dark-secondary;
+		}
+	}
 }

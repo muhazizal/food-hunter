@@ -15,6 +15,7 @@ class Jumbotron extends HTMLElement {
 			stylesText,
 			shadowRoot: this.shadowRoot,
 		});
+		this._jumbotronButton();
 	}
 
 	_renderTemplate() {
@@ -25,9 +26,21 @@ class Jumbotron extends HTMLElement {
           <p class="jumbotron__tagline">
             Be wise to your healthy with choosing good and high quality foods at our restaurants
           </p>
-        </div>
+					<button type="button" class="jumbotron__button">See Our Restaurants</button>
+				</div>
       </section>
 		`;
+	}
+
+	_jumbotronButton() {
+		this.shadowDOM.querySelector('.jumbotron__button').addEventListener('click', () => {
+			const homeRestaurants = document.querySelector('home-restaurants');
+			const restaurantLabel = homeRestaurants.shadowRoot.querySelector('.restaurants__label');
+
+			restaurantLabel.scrollIntoView({
+				behavior: 'smooth',
+			});
+		});
 	}
 }
 
