@@ -13,18 +13,31 @@
 		justify-content: center;
 	}
 
+	@include minWidth(769px) {
+		justify-content: flex-start;
+	}
+
 	&__thumbnail {
 		width: 100%;
 
 		@include minWidth(601px) {
-			padding: 5rem 0 0 0;
+			padding: 5rem 0 0 2rem;
 			width: 50vw;
+			max-width: 50rem;
+		}
+
+		@include minWidth(1025px) {
+			padding-left: 4.8rem;
 		}
 	}
 
 	// Restaurant image
 	&__image {
 		width: 100%;
+
+		@include minWidth(601px) {
+			max-width: 50rem;
+		}
 	}
 
 	.btn--favorite {
@@ -71,6 +84,10 @@
 			margin: 5rem 0 0 0;
 			height: 20.25rem;
 			padding: 0 0 0 2rem;
+		}
+
+		@include minWidth(769px) {
+			padding-left: 4rem;
 		}
 	}
 

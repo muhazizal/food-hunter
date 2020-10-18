@@ -4,12 +4,18 @@
 
 .menu {
 	color: $dark;
-	width: calc(100% - 4rem);
-	margin: 5rem 2rem 0 2rem;
+	margin-top: 5rem;
+	padding: 0 3rem;
 	display: flex;
 	flex-direction: column;
+	align-items: center;
+
+	@include minWidth(1025px) {
+		padding: 0 4.8rem;
+	}
 
 	&__inner {
+		width: 100%;
 		padding: 1.2rem;
 		border-radius: 0.5rem;
 		box-shadow: 0px 0.2rem 0.6rem 0.2rem $light-shadow;
@@ -21,6 +27,10 @@
 			grid-template-areas:
 				'title title'
 				'foods drinks';
+		}
+
+		@include minWidth(769px) {
+			max-width: 70.5rem;
 		}
 	}
 

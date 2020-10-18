@@ -1,4 +1,5 @@
-import styleText from '../../../../styles/components/restaurant/review.scss';
+import stylesText from '../../../../styles/components/restaurant/review.scss';
+import StylesHelper from '../../../utils/styles-helper';
 
 class Review extends HTMLElement {
 	constructor() {
@@ -11,7 +12,10 @@ class Review extends HTMLElement {
 
 	connectedCallback() {
 		this._renderTemplate();
-		this._renderStyle();
+		StylesHelper.init({
+			stylesText,
+			shadowRoot: this.shadowRoot,
+		});
 	}
 
 	_renderTemplate() {
@@ -44,14 +48,6 @@ class Review extends HTMLElement {
         </div>
       </section>
     `;
-	}
-
-	_renderStyle() {
-		const styleReview = document.createElement('style');
-		styleReview.type = 'text/css';
-		styleReview.appendChild(document.createTextNode(styleText));
-
-		this.shadowDOM.appendChild(styleReview);
 	}
 }
 

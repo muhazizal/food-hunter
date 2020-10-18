@@ -1,5 +1,6 @@
-import styleText from '../../../../styles/components/home/restaurants.scss';
+import stylesText from '../../../../styles/components/home/restaurants.scss';
 import API_ENDPOINT from '../../../globals/api-endpoint';
+import StylesHelper from '../../../utils/styles-helper';
 
 class Restaurants extends HTMLElement {
 	constructor() {
@@ -11,7 +12,10 @@ class Restaurants extends HTMLElement {
 
 	connectedCallback() {
 		this._renderTemplate();
-		this._renderStyle();
+		StylesHelper.init({
+			stylesText,
+			shadowRoot: this.shadowRoot,
+		});
 	}
 
 	set restaurants(restaurants) {
@@ -28,14 +32,6 @@ class Restaurants extends HTMLElement {
         </div>
       </section>
     `;
-	}
-
-	_renderStyle() {
-		const styleRestaurants = document.createElement('style');
-		styleRestaurants.type = 'text/css';
-		styleRestaurants.appendChild(document.createTextNode(styleText));
-
-		this.shadowRoot.appendChild(styleRestaurants);
 	}
 
 	_renderData() {

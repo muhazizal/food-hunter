@@ -1,4 +1,5 @@
-import styleText from '../../../../styles/components/home/newsletter.scss';
+import stylesText from '../../../../styles/components/home/newsletter.scss';
+import StylesHelper from '../../../utils/styles-helper';
 
 class Newsletter extends HTMLElement {
 	constructor() {
@@ -10,7 +11,10 @@ class Newsletter extends HTMLElement {
 
 	connectedCallback() {
 		this._renderTemplate();
-		this._renderStyle();
+		StylesHelper.init({
+			stylesText,
+			shadowRoot: this.shadowRoot,
+		});
 		this._formFeedback();
 	}
 

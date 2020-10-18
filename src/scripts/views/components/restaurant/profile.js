@@ -1,4 +1,5 @@
-import styleText from '../../../../styles/components/restaurant/profile.scss';
+import stylesText from '../../../../styles/components/restaurant/profile.scss';
+import StylesHelper from '../../../utils/styles-helper';
 import API_ENDPOINT from '../../../globals/api-endpoint';
 
 class RestaurantProfile extends HTMLElement {
@@ -12,7 +13,10 @@ class RestaurantProfile extends HTMLElement {
 	set restaurant(restaurant) {
 		this._restaurant = restaurant;
 		this._renderTemplate();
-		this._renderStyle();
+		StylesHelper.init({
+			stylesText,
+			shadowRoot: this.shadowRoot,
+		});
 		this._restaurantCategory();
 	}
 
@@ -44,14 +48,6 @@ class RestaurantProfile extends HTMLElement {
 				</div>
 			</section>
 		`;
-	}
-
-	_renderStyle() {
-		const styleProfile = document.createElement('style');
-		styleProfile.type = 'text/css';
-		styleProfile.appendChild(document.createTextNode(styleText));
-
-		this.shadowDOM.appendChild(styleProfile);
 	}
 
 	_restaurantCategory() {

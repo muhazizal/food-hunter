@@ -1,4 +1,6 @@
-import styleText from '../../../../styles/components/restaurant/menu.scss';
+import stylesText from '../../../../styles/components/restaurant/menu.scss';
+
+import StylesHelper from '../../../utils/styles-helper';
 
 class Menu extends HTMLElement {
 	constructor() {
@@ -12,7 +14,10 @@ class Menu extends HTMLElement {
 	set menu(menu) {
 		this._menu = menu;
 		this._renderTemplate();
-		this._renderStyle();
+		StylesHelper.init({
+			stylesText,
+			shadowRoot: this.shadowRoot,
+		});
 		this._renderFoods();
 		this._renderDrinks();
 	}
@@ -37,14 +42,6 @@ class Menu extends HTMLElement {
 				</div>
       </section>
     `;
-	}
-
-	_renderStyle() {
-		const styleMenu = document.createElement('style');
-		styleMenu.type = 'text/css';
-		styleMenu.appendChild(document.createTextNode(styleText));
-
-		this.shadowDOM.appendChild(styleMenu);
 	}
 
 	_renderFoods() {

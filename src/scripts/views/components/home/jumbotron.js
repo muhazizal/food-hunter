@@ -1,4 +1,5 @@
 import stylesText from '../../../../styles/components/home/jumbotron.scss';
+import StylesHelper from '../../../utils/styles-helper';
 
 class Jumbotron extends HTMLElement {
 	constructor() {
@@ -10,7 +11,10 @@ class Jumbotron extends HTMLElement {
 
 	connectedCallback() {
 		this._renderTemplate();
-		this._renderStyle();
+		StylesHelper.init({
+			stylesText,
+			shadowRoot: this.shadowRoot,
+		});
 	}
 
 	_renderTemplate() {
@@ -24,14 +28,6 @@ class Jumbotron extends HTMLElement {
         </div>
       </section>
 		`;
-	}
-
-	_renderStyle() {
-		const styleJumbotron = document.createElement('style');
-		styleJumbotron.type = 'text/css';
-		styleJumbotron.appendChild(document.createTextNode(stylesText));
-
-		this.shadowRoot.appendChild(styleJumbotron);
 	}
 }
 
