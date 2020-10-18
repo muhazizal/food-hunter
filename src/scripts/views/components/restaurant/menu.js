@@ -40,6 +40,7 @@ class Menu extends HTMLElement {
 						</ul>
 					</div>
 				</div>
+				<img class="menu__illustration" alt="store" src="/images/illustrations/menus.svg">
       </section>
     `;
 	}

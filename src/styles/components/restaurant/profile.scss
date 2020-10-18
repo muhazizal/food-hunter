@@ -13,21 +13,18 @@
 		justify-content: center;
 	}
 
-	@include minWidth(769px) {
-		justify-content: flex-start;
-	}
-
 	&__thumbnail {
 		width: 100%;
 
 		@include minWidth(601px) {
-			padding: 5rem 0 0 2rem;
+			padding-top: 5rem;
+			padding-right: 1rem;
 			width: 50vw;
 			max-width: 50rem;
 		}
 
-		@include minWidth(1025px) {
-			padding-left: 4.8rem;
+		@include minWidth(769px) {
+			padding-right: 2rem;
 		}
 	}
 
@@ -83,11 +80,11 @@
 		@include minWidth(601px) {
 			margin: 5rem 0 0 0;
 			height: 20.25rem;
-			padding: 0 0 0 2rem;
+			padding: 0 0 0 1rem;
 		}
 
 		@include minWidth(769px) {
-			padding-left: 4rem;
+			padding: 0 0 0 2rem;
 		}
 	}
 

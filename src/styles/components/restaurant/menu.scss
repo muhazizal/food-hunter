@@ -7,8 +7,7 @@
 	margin-top: 5rem;
 	padding: 0 3rem;
 	display: flex;
-	flex-direction: column;
-	align-items: center;
+	justify-content: center;
 
 	@include minWidth(1025px) {
 		padding: 0 4.8rem;
@@ -31,6 +30,21 @@
 
 		@include minWidth(769px) {
 			max-width: 70.5rem;
+		}
+
+		@include minWidth(1200px) {
+			margin-right: 2.4rem;
+		}
+	}
+
+	&__illustration {
+		display: none;
+
+		@include minWidth(1200px) {
+			display: block;
+			width: calc(50vw - 4.8rem);
+			max-width: 50rem;
+			padding-left: 2.4rem;
 		}
 	}
 
