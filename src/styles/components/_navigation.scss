@@ -160,7 +160,7 @@
 			top: 7rem;
 			left: -100%;
 			width: 100%;
-			height: 100%;
+			height: calc(100% - 7rem);
 			background-color: $light;
 			color: $dark;
 			display: inline-flex;
