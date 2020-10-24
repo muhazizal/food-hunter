@@ -1,47 +1,6 @@
-@import '../../variables';
-@import '../../mixins';
-@import '../../mdi';
-
-// Restaurant container
-.restaurants {
-	padding: 0 2rem;
-	color: $dark;
-
-	@include minWidth(1025px) {
-		padding: 0 4.8rem;
-	}
-
-	// Restaurant label
-	&__label {
-		font-size: 2.2rem;
-		padding: 5rem 0;
-		text-align: center;
-
-		@include minWidth(769px) {
-			font-size: 2.8rem;
-		}
-	}
-
-	// Restaurant list
-	&__list {
-		display: grid;
-		grid-template-columns: 1fr;
-		justify-items: center;
-		gap: 2rem;
-
-		@include minWidth(601px) {
-			grid-template-columns: 1fr 1fr;
-		}
-
-		@include minWidth(920px) {
-			grid-template-columns: repeat(3, 1fr);
-		}
-
-		@include minWidth(1365px) {
-			grid-template-columns: repeat(4, 1fr);
-		}
-	}
-}
+@import '../utils/variables';
+@import '../utils/mixins';
+@import '../utils/mdi';
 
 // Restaurant item
 .restaurant {
@@ -123,7 +82,7 @@
 
 	&__action {
 		padding: 1.6rem;
-		margin-bottom: 2rem;
+		padding-bottom: 3.2rem;
 		text-align: center;
 
 		a {

@@ -1,6 +1,7 @@
-import stylesText from '../../../../styles/components/home/restaurants.scss';
-import API_ENDPOINT from '../../../globals/api-endpoint';
+import stylesTextList from '../../../../styles/components/home/restaurants-list.scss';
+import stylesTextItem from '../../../../styles/components/restaurant-item.scss';
 import StylesHelper from '../../../utils/styles-helper';
+import '../restaurant-item';
 
 class FavoriteRestaurants extends HTMLElement {
 	constructor() {
@@ -13,7 +14,7 @@ class FavoriteRestaurants extends HTMLElement {
 	connectedCallback() {
 		this._renderTemplate();
 		StylesHelper.init({
-			stylesText,
+			stylesText: [stylesTextList, stylesTextItem],
 			shadowRoot: this.shadowRoot,
 		});
 	}
@@ -27,8 +28,12 @@ class FavoriteRestaurants extends HTMLElement {
 		this.shadowDOM.innerHTML = `
 			<style>
 				.restaurants {
-					margin-top: 7rem;
+					margin-top: 3rem;
 					margin-bottom: 5rem;
+				}
+
+				.restaurants__label {
+					margin: 0;
 				}
 			</style>
 
@@ -43,33 +48,10 @@ class FavoriteRestaurants extends HTMLElement {
 
 	_renderData() {
 		const FavoriteList = this.shadowDOM.querySelector('#favorite-list');
+		const restaurantItem = document.createElement('restaurant-item');
 
-		this._restaurants.forEach((restaurant) => {
-			FavoriteList.innerHTML += `
-        <article class="restaurant">
-          <div class="restaurant__thumbnail">
-						<img class="restaurant__image" 
-							src="${API_ENDPOINT.RESTAURANT_PICTURES.MEDIUM(restaurant.pictureId)}" 
-							alt="${restaurant.name} Image" 
-						/>
-            <p class="restaurant__city">${restaurant.city}</p>
-          </div>
-          <div class="restaurant__content">
-						<h3 class="restaurant__name">
-							<a href="/#/restaurant/${restaurant.id}">${restaurant.name}</a>
-						</h3>
-						<p class="restaurant__rating">
-							<i class="material-icons">star</i>
-              ${restaurant.rating}
-            </p>
-            <p class="restaurant__description">${restaurant.description.replace(/^(.{150}[^\s]*).*/, '$1')}</p>
-					</div>
-					<div class="restaurant__action">
-						<a href="/#/restaurant/${restaurant.id}">Detail Restaurant</a>
-					</div>
-        </article>
-      `;
-		});
+		restaurantItem.restaurants = this._restaurants;
+		FavoriteList.appendChild(restaurantItem);
 	}
 }
 

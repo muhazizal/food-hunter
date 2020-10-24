@@ -1,6 +1,6 @@
-@import '../../mixins';
-@import '../../variables';
-@import '../../mdi';
+@import '../../utils/mixins';
+@import '../../utils/variables';
+@import '../../utils/mdi';
 
 .menu {
 	color: $dark;
@@ -34,17 +34,6 @@
 
 		@include minWidth(1200px) {
 			margin-right: 2.4rem;
-		}
-	}
-
-	&__illustration {
-		display: none;
-
-		@include minWidth(1200px) {
-			display: block;
-			width: calc(50vw - 4.8rem);
-			max-width: 50rem;
-			padding-left: 2.4rem;
 		}
 	}
 

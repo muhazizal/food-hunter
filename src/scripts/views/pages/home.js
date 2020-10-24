@@ -1,6 +1,6 @@
 import RestaurantsSource from '../../data/restaurants-source';
 import '../components/home/jumbotron';
-import '../components/home/restaurants';
+import '../components/home/restaurants-list';
 import '../components/home/newsletters';
 
 const Home = {

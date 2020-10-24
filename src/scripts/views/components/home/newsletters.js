@@ -36,14 +36,6 @@ class Newsletter extends HTMLElement {
     `;
 	}
 
-	_renderStyle() {
-		const styleNewsletter = document.createElement('style');
-		styleNewsletter.type = 'text/css';
-		styleNewsletter.appendChild(document.createTextNode(styleText));
-
-		this.shadowDOM.appendChild(styleNewsletter);
-	}
-
 	_formFeedback() {
 		const emailInput = this.shadowDOM.querySelector('#email');
 		const emailError = this.shadowDOM.querySelector('#emailError');

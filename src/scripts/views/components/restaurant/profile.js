@@ -1,6 +1,7 @@
+import CONFIG from '../../../globals/config';
+import FavoriteRestaurantsIDB from '../../../data/favorite-restaurants-idb';
 import stylesText from '../../../../styles/components/restaurant/profile.scss';
 import StylesHelper from '../../../utils/styles-helper';
-import API_ENDPOINT from '../../../globals/api-endpoint';
 
 class RestaurantProfile extends HTMLElement {
 	constructor() {
@@ -13,6 +14,7 @@ class RestaurantProfile extends HTMLElement {
 	set restaurant(restaurant) {
 		this._restaurant = restaurant;
 		this._renderTemplate();
+		this._renderLikeButton();
 		StylesHelper.init({
 			stylesText,
 			shadowRoot: this.shadowRoot,
@@ -25,7 +27,7 @@ class RestaurantProfile extends HTMLElement {
 			<section class="profile">
 				<div class="profile__thumbnail">
 					<img class="profile__image"
-						src="${API_ENDPOINT.RESTAURANT_PICTURES.MEDIUM(this._restaurant.pictureId)}" 
+						src="${CONFIG.RESTAURANT_PICTURES.MEDIUM(this._restaurant.pictureId)}" 
 						alt="${this._restaurant.name} Image"
 					/>
 				</div>
@@ -43,7 +45,7 @@ class RestaurantProfile extends HTMLElement {
 						${this._restaurant.address}
 					</p>
 					<button class="btn--favorite">
-						<i class="material-icons">favorite_border</i>
+						<i class="material-icons" id="favorite-icon">favorite_border</i>
 					</button>
 				</div>
 			</section>
@@ -62,6 +64,38 @@ class RestaurantProfile extends HTMLElement {
 			}
 
 			i += 1;
+		});
+	}
+
+	async _renderLikeButton() {
+		if (await this._isRestaurantExist()) {
+			this._renderLiked();
+		} else {
+			this._renderLike();
+		}
+	}
+
+	async _isRestaurantExist() {
+		return FavoriteRestaurantsIDB.getRestaurant(this._restaurant.id);
+	}
+
+	_renderLike() {
+		this.shadowDOM.querySelector('#favorite-icon').innerHTML = 'favorite_border';
+
+		const likeButton = this.shadowDOM.querySelector('.btn--favorite');
+		likeButton.addEventListener('click', async () => {
+			await FavoriteRestaurantsIDB.putRestaurant(this._restaurant);
+			this._renderLikeButton();
+		});
+	}
+
+	_renderLiked() {
+		this.shadowDOM.querySelector('#favorite-icon').innerHTML = 'favorite';
+
+		const likeButton = this.shadowDOM.querySelector('.btn--favorite');
+		likeButton.addEventListener('click', async () => {
+			await FavoriteRestaurantsIDB.deleteRestaurant(this._restaurant.id);
+			this._renderLikeButton();
 		});
 	}
 }

@@ -17,11 +17,13 @@ const Restaurant = {
 		const url = UrlParser.parseActiveUrlWithoutCombiner();
 		const restaurantProfile = document.querySelector('restaurant-profile');
 		const restaurantMenu = document.querySelector('restaurant-menu');
+		const restaurantReview = document.querySelector('restaurant-review');
 
 		try {
 			const dataRestaurant = await RestaurantsSource.restaurantDetail(url.id);
 			restaurantProfile.restaurant = dataRestaurant;
 			restaurantMenu.menu = dataRestaurant.menus;
+			restaurantReview.reviews = dataRestaurant.consumerReviews;
 		} catch (error) {
 			console.log(error);
 		}

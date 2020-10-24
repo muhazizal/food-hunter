@@ -1,48 +1,32 @@
-import stylesText from '../../../../styles/components/home/restaurants.scss';
-import API_ENDPOINT from '../../../globals/api-endpoint';
-import StylesHelper from '../../../utils/styles-helper';
+import CONFIG from '../../globals/config';
+import stylesText from '../../../styles/components/restaurant-item.scss';
+import StylesHelper from '../../utils/styles-helper';
 
-class Restaurants extends HTMLElement {
+class Restaurant extends HTMLElement {
 	constructor() {
 		super();
+
 		this.shadowDOM = this.attachShadow({
 			mode: 'open',
 		});
 	}
 
-	connectedCallback() {
-		this._renderTemplate();
+	set restaurants(restaurants) {
+		this._restaurants = restaurants;
 		StylesHelper.init({
 			stylesText,
 			shadowRoot: this.shadowRoot,
 		});
-	}
-
-	set restaurants(restaurants) {
-		this._restaurants = restaurants;
-		this._renderData();
+		this._renderTemplate();
 	}
 
 	_renderTemplate() {
-		this.shadowDOM.innerHTML = `
-      <section class="restaurants">
-        <h2 class="restaurants__label">Our Best Restaurants</h2>
-        <div class="restaurants__list" id="restaurants-list">
-        
-        </div>
-      </section>
-    `;
-	}
-
-	_renderData() {
-		const restaurantsList = this.shadowDOM.querySelector('#restaurants-list');
-
 		this._restaurants.forEach((restaurant) => {
-			restaurantsList.innerHTML += `
+			this.shadowDOM.innerHTML += `
         <article class="restaurant">
           <div class="restaurant__thumbnail">
 						<img class="restaurant__image" 
-							src="${API_ENDPOINT.RESTAURANT_PICTURES.MEDIUM(restaurant.pictureId)}" 
+							src="${CONFIG.RESTAURANT_PICTURES.MEDIUM(restaurant.pictureId)}" 
 							alt="${restaurant.name} Image" 
 						/>
             <p class="restaurant__city">${restaurant.city}</p>
@@ -66,4 +50,4 @@ class Restaurants extends HTMLElement {
 	}
 }
 
-customElements.define('home-restaurants', Restaurants);
+customElements.define('restaurant-item', Restaurant);

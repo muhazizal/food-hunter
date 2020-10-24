@@ -1,0 +1,113 @@
+@import '../../utils/mixins';
+@import '../../utils/variables';
+@import '../../utils/mdi';
+
+.modal__inner {
+	position: relative;
+	background-color: $light;
+	margin: auto;
+	padding: 0;
+	width: 80%;
+	animation: slideDown 0.4s ease-in-out;
+
+	.modal__header {
+		padding: 1.6rem;
+		background-color: $light-primary;
+		color: $light;
+		text-align: center;
+
+		h3 {
+			margin: 0;
+			font-size: 2rem;
+		}
+	}
+
+	.modal__body {
+		padding: 1.6rem;
+		color: $dark;
+
+		form {
+			display: flex;
+			flex-direction: column;
+			flex-wrap: wrap;
+
+			label {
+				font-size: 1.6rem;
+				margin-bottom: 0.5rem;
+			}
+
+			input,
+			textarea {
+				box-sizing: border-box;
+				padding: 1.5rem;
+				margin-bottom: 1.2rem;
+				width: 100%;
+				border: 0.1rem solid $dark;
+				border-radius: 0.5rem;
+				outline: 0;
+				transition: box-shadow 0.3s ease-in-out;
+				font-family: 'Open Sans', sans-serif;
+			}
+
+			textarea {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	.modal__footer {
+		padding: 0 1.6rem 1.6rem 1.6rem;
+		background-color: $light;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-around;
+		align-items: center;
+
+		#btn-close-modal,
+		#btn-submit-modal {
+			background-color: $light-secondary;
+			padding: 1.45rem;
+			font-size: 1.4rem;
+			text-decoration: none;
+			color: $dark;
+			font-weight: 600;
+			border: 0;
+			border-radius: 0.5rem;
+			cursor: pointer;
+			outline: 0;
+			transition: background-color 0.3s ease-in-out;
+
+			&:hover {
+				background-color: $light-secondary-variant;
+			}
+
+			&:active {
+				background-color: $dark-secondary;
+			}
+		}
+
+		#btn-close-modal {
+			background-color: $light-error;
+			color: $light;
+
+			&:hover {
+				background-color: #8f001a;
+			}
+
+			&:active {
+				background-color: $light-error;
+			}
+		}
+	}
+}
+
+@keyframes slideDown {
+	from {
+		top: -30rem;
+		opacity: 0;
+	}
+	to {
+		top: 0;
+		opacity: 1;
+	}
+}

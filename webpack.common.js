@@ -3,6 +3,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const dartSass = require('sass');
+const WebpackPwaManifest = require('webpack-pwa-manifest');
+const WorkboxWebpackPlugin = require('workbox-webpack-plugin');
 
 module.exports = {
 	entry: {
@@ -74,6 +76,47 @@ module.exports = {
 					to: path.resolve(__dirname, 'dist/'),
 				},
 			],
+		}),
+		new WebpackPwaManifest({
+			filename: 'manifest.json',
+			name: 'Food Hunter',
+			short_name: 'Food Hunter',
+			orientation: 'portrait',
+			display: 'standalone',
+			description: 'Food Hunter',
+			background_color: '#fafafa',
+			theme_color: '#fafafa',
+			'theme-color': '#fafafa',
+			ios: {
+				'apple-mobile-web-app-title': 'Food Hunter',
+				'apple-mobile-web-app-status-bar-style': 'black',
+				'apple-mobile-web-app-capable': 'yes',
+			},
+			crossorigin: 'anonymous',
+			start_url: '/',
+			icons: [
+				{
+					src: path.resolve('./src/public/images/favicon.png'),
+					sizes: [96, 128, 192, 256, 384, 512],
+					destination: path.join('images', 'icons', 'android'),
+				},
+				{
+					src: path.resolve('./src/public/images/favicon.png'),
+					sizes: [120, 152, 167, 180, 1024],
+					destination: path.join('images', 'icons', 'ios'),
+					ios: true,
+				},
+				{
+					src: path.resolve('./src/public/images/favicon.png'),
+					sizes: 1024,
+					destination: path.join('images', 'icons', 'ios'),
+					ios: 'startup',
+				},
+			],
+		}),
+		new WorkboxWebpackPlugin.InjectManifest({
+			swSrc: './src/scripts/sw.js',
+			swDest: 'sw.js',
 		}),
 	],
 };

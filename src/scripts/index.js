@@ -1,6 +1,7 @@
 import 'regenerator-runtime'; /* for async await transpile */
 import '../styles/main.scss';
 import App from './views/app';
+import swRegister from './utils/sw-register';
 
 const app = new App({
 	toggle: document.querySelector('.nav__toggle'),
@@ -15,4 +16,5 @@ window.addEventListener('hashchange', () => {
 
 window.addEventListener('load', () => {
 	app.renderPage();
+	swRegister();
 });

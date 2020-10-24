@@ -1,5 +1,4 @@
 import stylesText from '../../../../styles/components/restaurant/menu.scss';
-
 import StylesHelper from '../../../utils/styles-helper';
 
 class Menu extends HTMLElement {
@@ -14,17 +13,17 @@ class Menu extends HTMLElement {
 	set menu(menu) {
 		this._menu = menu;
 		this._renderTemplate();
+
 		StylesHelper.init({
 			stylesText,
 			shadowRoot: this.shadowRoot,
 		});
+
 		this._renderFoods();
 		this._renderDrinks();
 	}
 
 	_renderTemplate() {
-		console.log(this._menu);
-
 		this.shadowDOM.innerHTML = `
 			<section class="menu">
 				<div class="menu__inner">
@@ -40,7 +39,6 @@ class Menu extends HTMLElement {
 						</ul>
 					</div>
 				</div>
-				<img class="menu__illustration" alt="store" src="/images/illustrations/menus.svg">
       </section>
     `;
 	}
