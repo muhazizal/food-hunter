@@ -11,19 +11,16 @@ class Review extends HTMLElement {
 		});
 	}
 
-	connectedCallback() {
+	set restaurant(restaurant) {
+		this._restaurant = restaurant;
 		this._renderTemplate();
-		this._renderReviewModal();
 		StylesHelper.init({
 			stylesText,
 			shadowRoot: this.shadowRoot,
 		});
 		this._openModal(this.shadowDOM.querySelector('.review__modal'));
-	}
-
-	set reviews(reviews) {
-		this._reviews = reviews;
 		this._renderData();
+		this._renderReviewModal();
 	}
 
 	_renderTemplate() {
@@ -46,7 +43,7 @@ class Review extends HTMLElement {
 	_renderData() {
 		const reviewListContainer = this.shadowDOM.querySelector('.review__list');
 
-		this._reviews.forEach((review) => {
+		this._restaurant.consumerReviews.forEach((review) => {
 			reviewListContainer.innerHTML += `
         <div class="review__item">
           <div class="review__people">
@@ -68,6 +65,7 @@ class Review extends HTMLElement {
 	_renderReviewModal() {
 		const reviewModalContainer = this.shadowDOM.querySelector('.review__modal');
 		const reviewModalElement = document.createElement('review-modal');
+		reviewModalElement.restaurant = this._restaurant;
 		reviewModalContainer.appendChild(reviewModalElement);
 	}
 

@@ -1,4 +1,5 @@
-import stylesText from '../../../../styles/components/home/restaurants-list.scss';
+import stylesTextRestaurants from '../../../../styles/components/home/restaurants-list.scss';
+import stylesTextSpinner from '../../../../styles/components/spinner.scss';
 import StylesHelper from '../../../utils/styles-helper';
 import '../restaurant-item';
 
@@ -10,12 +11,15 @@ class Restaurants extends HTMLElement {
 		});
 	}
 
-	set restaurants(restaurants) {
+	connectedCallback() {
 		this._renderTemplate();
 		StylesHelper.init({
-			stylesText,
+			stylesText: [stylesTextRestaurants, stylesTextSpinner],
 			shadowRoot: this.shadowRoot,
 		});
+	}
+
+	set restaurants(restaurants) {
 		this._restaurants = restaurants;
 		this._renderRestaurantItem();
 	}

@@ -2,6 +2,7 @@ import RestaurantsSource from '../../data/restaurants-source';
 import '../components/home/jumbotron';
 import '../components/home/restaurants-list';
 import '../components/home/newsletters';
+import '../components/renderError';
 
 const Home = {
 	async render() {
@@ -13,12 +14,19 @@ const Home = {
 	},
 
 	async afterRender() {
-		const restaurantsList = document.querySelector('home-restaurants');
+		const homeRestaurants = document.querySelector('home-restaurants');
+		const spinnerContainer = homeRestaurants.shadowRoot.querySelector('.restaurants__label');
+		const restaurantListContainer = homeRestaurants.shadowRoot.querySelector('.restaurants__list');
 
+		spinnerContainer.classList.add('spinner');
 		try {
 			const dataRestaurants = await RestaurantsSource.restaurantsList();
-			restaurantsList.restaurants = dataRestaurants;
+			homeRestaurants.restaurants = dataRestaurants;
+			spinnerContainer.classList.remove('spinner');
 		} catch (error) {
+			spinnerContainer.classList.remove('spinner');
+			const renderErrorElement = document.createElement('render-error');
+			restaurantListContainer.appendChild(renderErrorElement);
 			console.log(error);
 		}
 	},

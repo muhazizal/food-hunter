@@ -1,1 +1,1 @@
-# food-hunte
+# food-hunter

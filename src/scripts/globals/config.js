@@ -1,5 +1,5 @@
 const CONFIG = {
-	BASE_URL: 'https://restaurant-api.dicoding.dev//',
+	BASE_URL: ' https://restaurant-api.dicoding.dev/',
 	RESTAURANT_PICTURES: {
 		SMALL: (id) => `https://restaurant-api.dicoding.dev/images/small/${id}`,
 		MEDIUM: (id) => `https://restaurant-api.dicoding.dev/images/medium/${id}`,

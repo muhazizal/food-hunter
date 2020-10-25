@@ -1,0 +1,24 @@
+@import '../utils/variables';
+
+.spinner:before {
+	content: '';
+	box-sizing: border-box;
+	position: absolute;
+	top: 12rem;
+	left: 50%;
+	height: 6rem;
+	width: 6rem;
+	margin-top: -3rem;
+	margin-left: -3rem;
+	border-radius: 50%;
+	border: 0.2rem solid transparent;
+	border-top-color: $light-primary;
+	border-bottom-color: $light-primary;
+	animation: spinner 0.7s ease infinite;
+}
+
+@keyframes spinner {
+	to {
+		transform: rotate(360deg);
+	}
+}

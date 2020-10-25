@@ -14,8 +14,10 @@
 	// Restaurant label
 	&__label {
 		font-size: 2.2rem;
-		padding: 9rem 0 5rem 0;
+		padding: 5rem 0;
+		margin: 0;
 		text-align: center;
+		position: relative;
 
 		@include minWidth(769px) {
 			font-size: 2.8rem;

@@ -52,7 +52,6 @@ class Newsletter extends HTMLElement {
 		subscribe.addEventListener('click', (event) => {
 			if (emailInput.value === '' || emailInput.value === null || emailInput.value.indexOf('@') === -1) {
 				emailInput.style.boxShadow = '0 0 3pt 2pt #cf6679';
-
 				emailError.innerText = 'Your email not valid';
 				emailError.style.padding = '0.8rem 1.2rem';
 				emailError.style.backgroundColor = '#cf6679';

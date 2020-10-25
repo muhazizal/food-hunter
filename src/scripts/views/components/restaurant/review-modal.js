@@ -1,5 +1,6 @@
 import StylesHelper from '../../../utils/styles-helper';
 import stylesText from '../../../../styles/components/restaurant/review-modal.scss';
+import RestaurantSource from '../../../data/restaurants-source';
 
 class ReviewModal extends HTMLElement {
 	constructor() {
@@ -12,12 +13,16 @@ class ReviewModal extends HTMLElement {
 
 	connectedCallback() {
 		this._renderTemplate();
-		console.log(this.parentElement);
 		this._closeModal(this.parentElement);
+		this._submitReview(this.parentElement);
 		StylesHelper.init({
 			stylesText,
 			shadowRoot: this.shadowRoot,
 		});
+	}
+
+	set restaurant(restaurant) {
+		this._restaurant = restaurant;
 	}
 
 	_renderTemplate() {
@@ -51,6 +56,42 @@ class ReviewModal extends HTMLElement {
 		modal.addEventListener('click', (event) => {
 			if (event.target === modal) {
 				modal.style.display = 'none';
+			}
+		});
+	}
+
+	_submitReview(modal) {
+		const buttonSubmit = this.shadowDOM.querySelector('#btn-submit-modal');
+		const inputName = this.shadowDOM.querySelector('#name');
+		const inputReview = this.shadowDOM.querySelector('#review');
+
+		buttonSubmit.addEventListener('click', async () => {
+			if (inputName.value === '' || -inputName.value === null) {
+				alert('Name is required');
+				return;
+			}
+
+			if (inputReview.value === '' || inputReview.value === null) {
+				alert('Review is required');
+				return;
+			}
+
+			const dataReview = {
+				id: this._restaurant.id,
+				name: inputName.value,
+				review: inputReview.value,
+			};
+
+			try {
+				const responsePostReview = await RestaurantSource.postReviewRestaurant(dataReview);
+				if (responsePostReview.message === 'success') {
+					inputName.value = '';
+					inputReview.value = '';
+					modal.style.display = 'none';
+					alert('Your review has been submitted');
+				}
+			} catch (error) {
+				console.log(error);
 			}
 		});
 	}

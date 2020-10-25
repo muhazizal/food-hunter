@@ -19,6 +19,9 @@
 		"object-curly-newline": 0,
 		"import/no-extraneous-dependencies": 0,
 		"max-len": ["error", { "code": 120 }],
-		"no-param-reassign": 0
+		"no-param-reassign": 0,
+		"no-useless-return": 0,
+		"no-alert": 0,
+		"operator-linebreak": 0
 	}
 }
