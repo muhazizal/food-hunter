@@ -61,7 +61,7 @@ class RestaurantProfile extends HTMLElement {
 			</p>
 			<p class="profile__address">
 				<i class="material-icons">place</i>
-				${this._restaurant.address}
+				${this._restaurant.address}, ${this._restaurant.city}
 			</p>
 			<button class="btn--favorite">
 				<i class="material-icons" id="favorite-icon">favorite_border</i>

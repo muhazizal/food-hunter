@@ -26,7 +26,7 @@ class Restaurants extends HTMLElement {
 
 	_renderTemplate() {
 		this.shadowDOM.innerHTML = `
-      <section class="restaurants">
+      <section class="restaurants" id="restaurants-content">
         <h2 class="restaurants__label">Our Best Restaurants</h2>
         <div class="restaurants__list" id="restaurants-list">
         
