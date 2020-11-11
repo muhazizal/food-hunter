@@ -66,7 +66,7 @@ class ReviewModal extends HTMLElement {
 		const inputReview = this.shadowDOM.querySelector('#review');
 
 		buttonSubmit.addEventListener('click', async () => {
-			if (inputName.value === '' || -inputName.value === null) {
+			if (inputName.value === '' || inputName.value === null) {
 				alert('Name is required');
 				return;
 			}

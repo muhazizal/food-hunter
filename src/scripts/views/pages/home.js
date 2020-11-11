@@ -15,8 +15,8 @@ const Home = {
 
 	async afterRender() {
 		const homeRestaurants = document.querySelector('home-restaurants');
-		const spinnerContainer = homeRestaurants.shadowRoot.querySelector('.restaurants__label');
 		const restaurantListContainer = homeRestaurants.shadowRoot.querySelector('.restaurants__list');
+		const spinnerContainer = homeRestaurants.shadowRoot.querySelector('.restaurants__label');
 
 		spinnerContainer.classList.add('spinner');
 		try {
