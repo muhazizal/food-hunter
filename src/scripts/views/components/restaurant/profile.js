@@ -102,7 +102,7 @@ class RestaurantProfile extends HTMLElement {
 		const likeButton = this.shadowDOM.querySelector('.btn--favorite');
 		likeButton.addEventListener('click', async () => {
 			await FavoriteRestaurantsIDB.putRestaurant(this._restaurant);
-			this._renderLikeButton();
+			await this._renderLikeButton();
 		});
 	}
 
@@ -112,7 +112,7 @@ class RestaurantProfile extends HTMLElement {
 		const likeButton = this.shadowDOM.querySelector('.btn--favorite');
 		likeButton.addEventListener('click', async () => {
 			await FavoriteRestaurantsIDB.deleteRestaurant(this._restaurant.id);
-			this._renderLikeButton();
+			await this._renderLikeButton();
 		});
 	}
 }

@@ -26,8 +26,9 @@ class Newsletter extends HTMLElement {
           Get the lattest <span class="newsletter__brand">Food Hunter</span> newsletters about our best restaurants.
         </p>
         <div class="newsletter__form">
-          <form>
-            <input type="email" id="email" name="email" placeholder="ex. yourname@domain.com" />
+					<form>
+						<input type="email" id="email" name="email" placeholder="ex. yourname@domain.com" 
+							aria-label="enter email" />
             <span id="emailError"></span>
             <button id="subscribe">Subscribe</button>
           </form>

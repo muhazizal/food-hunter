@@ -43,7 +43,7 @@ class Review extends HTMLElement {
 	_renderData() {
 		const reviewListContainer = this.shadowDOM.querySelector('.review__list');
 
-		this._restaurant.consumerReviews.forEach((review) => {
+		this._restaurant.customerReviews.forEach((review) => {
 			reviewListContainer.innerHTML += `
         <div class="review__item">
           <div class="review__people">

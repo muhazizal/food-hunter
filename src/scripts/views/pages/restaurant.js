@@ -34,7 +34,7 @@ const Restaurant = {
 			spinnerContainer.classList.remove('spinner');
 			const renderErrorElement = document.createElement('render-error');
 			mainContainer.appendChild(renderErrorElement);
-			renderErrorElement.shadowRoot.querySelector('.render__error').style.marginTop = '10rem';
+			renderErrorElement.shadowRoot.querySelector('.render__error').style.marginTop = '3rem';
 			console.log(error);
 		}
 	},

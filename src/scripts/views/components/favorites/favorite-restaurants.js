@@ -30,8 +30,9 @@ class FavoriteRestaurants extends HTMLElement {
 		this.shadowDOM.innerHTML = `
 			<style>
 				.restaurants {
+					height: calc(100vh - 7rem);
 					margin-top: 7rem;
-					margin-bottom: 5rem;
+					margin-bottom: -7rem;
 				}
 
 				.restaurants__label {
