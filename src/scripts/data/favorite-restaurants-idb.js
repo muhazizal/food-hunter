@@ -11,6 +11,10 @@ const dbPromise = openDB(DATABASE_NAME, DATABASE_VERSION, {
 
 const FavoriteRestaurantsIDB = {
 	async getRestaurant(id) {
+		if (!id) {
+			return console.log('No id detected');
+		}
+
 		return (await dbPromise).get(OBJECT_STORE_NAME, id);
 	},
 
@@ -19,6 +23,10 @@ const FavoriteRestaurantsIDB = {
 	},
 
 	async putRestaurant(restaurant) {
+		if (!restaurant.id) {
+			return console.log('No id detected');
+		}
+
 		return (await dbPromise).put(OBJECT_STORE_NAME, restaurant);
 	},
 

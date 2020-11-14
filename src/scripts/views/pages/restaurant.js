@@ -1,7 +1,7 @@
 import UrlParser from '../../routes/url-parser';
 import RestaurantsSource from '../../data/restaurants-source';
 // import FavoriteRestaurantsIDB from '../../data/favorite-restaurants-idb';
-import LikeButton from '../components/restaurant/like-button';
+import LikeButtonPresenter from '../components/restaurant/like-button-presenter';
 import '../components/restaurant/profile';
 import '../components/restaurant/menu';
 import '../components/restaurant/review';
@@ -33,7 +33,7 @@ const Restaurant = {
 			restaurantReview.restaurant = dataRestaurant;
 			spinnerContainer.classList.remove('spinner');
 
-			LikeButton.init({
+			LikeButtonPresenter.init({
 				profileShadowRoot: restaurantProfile.shadowRoot,
 				likeButtonContainer: restaurantProfile.shadowRoot.querySelector('.profile__action'),
 				restaurants: dataRestaurant,

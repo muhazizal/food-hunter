@@ -1,18 +1,19 @@
 import FavoriteRestaurantsIDB from '../../../data/favorite-restaurants-idb';
 
-const LikeButton = {
+const LikeButtonPresenter = {
 	async init({ profileShadowRoot, likeButtonContainer, restaurants }) {
 		this._profileShadowRoot = profileShadowRoot;
-		this._restaurants = restaurants;
 		this._likeButtonContainer = likeButtonContainer;
+		this._restaurants = restaurants;
+
 		await this._renderButton();
 	},
 
 	async _renderButton() {
 		if (await this._isRestaurantExist(this._restaurants.id)) {
-			this._renderLikedButton();
+			this._renderUnlikedRestaurantButton();
 		} else {
-			this._renderLikeButton();
+			this._renderLikeRestaurantButton();
 		}
 	},
 
@@ -21,7 +22,7 @@ const LikeButton = {
 		return !!restaurant;
 	},
 
-	_renderLikeButton() {
+	_renderLikeRestaurantButton() {
 		this._likeButtonContainer.innerHTML = `
       <button class="btn--favorite" aria-label="like this restaurant">
         <i class="material-icons" id="favorite-icon">favorite_border</i>
@@ -35,7 +36,7 @@ const LikeButton = {
 		});
 	},
 
-	_renderLikedButton() {
+	_renderUnlikedRestaurantButton() {
 		this._likeButtonContainer.innerHTML = `
       <button class="btn--favorite" aria-label="unlike this restaurant">
         <i class="material-icons" id="favorite-icon">favorite</i>
@@ -50,4 +51,4 @@ const LikeButton = {
 	},
 };
 
-export default LikeButton;
+export default LikeButtonPresenter;
