@@ -1,10 +1,9 @@
-import FavoriteRestaurantsIDB from '../../../data/favorite-restaurants-idb';
-
 const LikeButtonPresenter = {
-	async init({ profileShadowRoot, likeButtonContainer, restaurants }) {
+	async init({ profileShadowRoot, likeButtonContainer, restaurants, favoriteRestaurants }) {
 		this._profileShadowRoot = profileShadowRoot;
 		this._likeButtonContainer = likeButtonContainer;
 		this._restaurants = restaurants;
+		this._favoriteRestaurants = favoriteRestaurants;
 
 		await this._renderButton();
 	},
@@ -18,7 +17,7 @@ const LikeButtonPresenter = {
 	},
 
 	async _isRestaurantExist(id) {
-		const restaurant = await FavoriteRestaurantsIDB.getRestaurant(id);
+		const restaurant = await this._favoriteRestaurants.getRestaurant(id);
 		return !!restaurant;
 	},
 
@@ -31,7 +30,7 @@ const LikeButtonPresenter = {
 
 		const likeButton = this._profileShadowRoot.querySelector('.btn--favorite');
 		likeButton.addEventListener('click', async () => {
-			await FavoriteRestaurantsIDB.putRestaurant(this._restaurants);
+			await this._favoriteRestaurants.putRestaurant(this._restaurants);
 			this._renderButton();
 		});
 	},
@@ -45,7 +44,7 @@ const LikeButtonPresenter = {
 
 		const likeButton = this._profileShadowRoot.querySelector('.btn--favorite');
 		likeButton.addEventListener('click', async () => {
-			await FavoriteRestaurantsIDB.deleteRestaurant(this._restaurants.id);
+			await this._favoriteRestaurants.deleteRestaurant(this._restaurants.id);
 			this._renderButton();
 		});
 	},

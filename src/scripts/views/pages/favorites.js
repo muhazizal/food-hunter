@@ -1,4 +1,4 @@
-import FavoriteRestaurantsIDB from '../../data/favorite-restaurants-idb';
+import FavoriteRestaurants from '../../data/favorite-restaurants';
 import '../components/favorites/favorite-restaurants';
 import '../components/renderError';
 
@@ -17,7 +17,7 @@ const Restaurant = {
 		spinnerContainer.classList.add('spinner');
 
 		try {
-			const dataRestaurants = await FavoriteRestaurantsIDB.getAllRestaurants();
+			const dataRestaurants = await FavoriteRestaurants.getAllRestaurants();
 			favoritesRestaurants.restaurants = dataRestaurants;
 			spinnerContainer.classList.remove('spinner');
 		} catch (error) {

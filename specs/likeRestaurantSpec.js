@@ -1,4 +1,4 @@
-import FavoriteRestaurantsIDB from '../src/scripts/data/favorite-restaurants-idb';
+import FavoriteRestaurants from '../src/scripts/data/favorite-restaurants';
 import * as TestFactories from './helpers/testFactories';
 
 const createLikeButtonContainer = () => {
@@ -30,23 +30,23 @@ describe('Liking a Restaurant', () => {
 		await TestFactories.createLikeButtonPresenterWithRestaurants({ id: 1 });
 
 		document.querySelector('.btn--favorite').dispatchEvent(new Event('click'));
-		const restaurant = await FavoriteRestaurantsIDB.getRestaurant(1);
+		const restaurant = await FavoriteRestaurants.getRestaurant(1);
 
 		expect(restaurant).toEqual({ id: 1 });
 
-		FavoriteRestaurantsIDB.deleteRestaurant(1);
+		FavoriteRestaurants.deleteRestaurant(1);
 	});
 
 	it('should not add a restaurant again when it already liked', async () => {
 		await TestFactories.createLikeButtonPresenterWithRestaurants({ id: 1 });
 
-		await FavoriteRestaurantsIDB.putRestaurant({ id: 1 });
+		await FavoriteRestaurants.putRestaurant({ id: 1 });
 
 		document.querySelector('.btn--favorite').dispatchEvent(new Event('click'));
 
-		expect(await FavoriteRestaurantsIDB.getAllRestaurants()).toEqual([{ id: 1 }]);
+		expect(await FavoriteRestaurants.getAllRestaurants()).toEqual([{ id: 1 }]);
 
-		FavoriteRestaurantsIDB.deleteRestaurant(1);
+		FavoriteRestaurants.deleteRestaurant(1);
 	});
 
 	it('should not add a restaurant when it has no id', async () => {
@@ -54,6 +54,6 @@ describe('Liking a Restaurant', () => {
 
 		document.querySelector('.btn--favorite').dispatchEvent(new Event('click'));
 
-		expect(await FavoriteRestaurantsIDB.getAllRestaurants()).toEqual([]);
+		expect(await FavoriteRestaurants.getAllRestaurants()).toEqual([]);
 	});
 });
