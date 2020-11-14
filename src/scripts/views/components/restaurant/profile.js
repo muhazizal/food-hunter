@@ -29,9 +29,13 @@ class RestaurantProfile extends HTMLElement {
 		this.shadowDOM.innerHTML = `
 			<section class="profile">
 				<div class="profile__thumbnail">
+
 				</div>
 				<div class="profile__content">
 					
+				</div>
+				<div class="profile__action">
+
 				</div>
 			</section>
 		`;
@@ -61,9 +65,6 @@ class RestaurantProfile extends HTMLElement {
 				<i class="material-icons">place</i>
 				${this._restaurant.address}, ${this._restaurant.city}
 			</p>
-			<button class="btn--favorite">
-				<i class="material-icons" id="favorite-icon">favorite_border</i>
-			</button>
 		`;
 	}
 
