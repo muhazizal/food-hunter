@@ -22,7 +22,7 @@ const Restaurant = {
 		const restaurantMenu = document.querySelector('restaurant-menu');
 		const restaurantReview = document.querySelector('restaurant-review');
 		const mainContainer = document.querySelector('#main-content');
-		const spinnerContainer = restaurantProfile.shadowRoot.querySelector('.profile');
+		const spinnerContainer = document.querySelector('.profile');
 
 		spinnerContainer.classList.add('spinner');
 
@@ -34,8 +34,7 @@ const Restaurant = {
 			spinnerContainer.classList.remove('spinner');
 
 			LikeButtonPresenter.init({
-				profileShadowRoot: restaurantProfile.shadowRoot,
-				likeButtonContainer: restaurantProfile.shadowRoot.querySelector('.profile__action'),
+				likeButtonContainer: document.querySelector('.profile__action'),
 				restaurants: dataRestaurant,
 				favoriteRestaurants: FavoriteRestaurants,
 			});
@@ -43,7 +42,7 @@ const Restaurant = {
 			spinnerContainer.classList.remove('spinner');
 			const renderErrorElement = document.createElement('render-error');
 			mainContainer.appendChild(renderErrorElement);
-			renderErrorElement.shadowRoot.querySelector('.render__error').style.marginTop = '10rem';
+			document.querySelector('.render__error').style.marginTop = '10rem';
 		}
 	},
 };

@@ -1,25 +1,15 @@
-import stylesText from '../../../../styles/components/home/newsletter.scss';
-import StylesHelper from '../../../utils/styles-helper';
-
 class Newsletter extends HTMLElement {
 	constructor() {
 		super();
-		this.shadowDOM = this.attachShadow({
-			mode: 'open',
-		});
 	}
 
 	connectedCallback() {
 		this._renderTemplate();
-		StylesHelper.init({
-			stylesText,
-			shadowRoot: this.shadowRoot,
-		});
 		this._formFeedback();
 	}
 
 	_renderTemplate() {
-		this.shadowDOM.innerHTML = `
+		this.innerHTML = `
       <section class="newsletter">
         <h2 class="newsletter__label">Stay Updated</h2>
         <p class="newsletter__tagline">
@@ -38,9 +28,9 @@ class Newsletter extends HTMLElement {
 	}
 
 	_formFeedback() {
-		const emailInput = this.shadowDOM.querySelector('#email');
-		const emailError = this.shadowDOM.querySelector('#emailError');
-		const subscribe = this.shadowDOM.querySelector('#subscribe');
+		const emailInput = this.querySelector('#email');
+		const emailError = this.querySelector('#emailError');
+		const subscribe = this.querySelector('#subscribe');
 
 		emailInput.addEventListener('focusin', () => {
 			emailInput.style.boxShadow = '0 0 3pt 2pt #03dac6';

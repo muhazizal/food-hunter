@@ -1,7 +1,3 @@
-@import '../../utils/mixins';
-@import '../../utils/variables';
-@import '../../utils/mdi';
-
 .review {
 	background-color: $dark;
 	margin-top: 5rem;
@@ -15,6 +11,10 @@
 		border-top: 0.1rem solid $light;
 		border-bottom: 0.1rem solid $light;
 		padding: 1.2rem 0;
+
+		p {
+			margin-bottom: 1.2rem;
+		}
 	}
 
 	&__title {

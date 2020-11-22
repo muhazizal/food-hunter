@@ -10,7 +10,6 @@ const CONFIG = {
 	DATABASE_NAME: 'favorite-restaurants-database',
 	DATABASE_VERSION: 1,
 	OBJECT_STORE_NAME: 'restaurants',
-	// WEB_SOCKET_SERVER: ,
 };
 
 export default CONFIG;

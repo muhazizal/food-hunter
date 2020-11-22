@@ -1,6 +1,5 @@
 const LikeButtonPresenter = {
-	async init({ profileShadowRoot, likeButtonContainer, restaurants, favoriteRestaurants }) {
-		this._profileShadowRoot = profileShadowRoot;
+	async init({ likeButtonContainer, restaurants, favoriteRestaurants }) {
 		this._likeButtonContainer = likeButtonContainer;
 		this._restaurants = restaurants;
 		this._favoriteRestaurants = favoriteRestaurants;
@@ -28,7 +27,7 @@ const LikeButtonPresenter = {
       </button>
     `;
 
-		const likeButton = this._profileShadowRoot.querySelector('.btn--favorite');
+		const likeButton = document.querySelector('.btn--favorite');
 		likeButton.addEventListener('click', async () => {
 			await this._favoriteRestaurants.putRestaurant(this._restaurants);
 			this._renderButton();
@@ -42,7 +41,7 @@ const LikeButtonPresenter = {
       </button>
     `;
 
-		const likeButton = this._profileShadowRoot.querySelector('.btn--favorite');
+		const likeButton = document.querySelector('.btn--favorite');
 		likeButton.addEventListener('click', async () => {
 			await this._favoriteRestaurants.deleteRestaurant(this._restaurants.id);
 			this._renderButton();

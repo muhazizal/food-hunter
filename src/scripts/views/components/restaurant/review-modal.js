@@ -1,24 +1,14 @@
-import StylesHelper from '../../../utils/styles-helper';
-import stylesText from '../../../../styles/components/restaurant/review-modal.scss';
 import RestaurantSource from '../../../data/restaurants-source';
 
 class ReviewModal extends HTMLElement {
 	constructor() {
 		super();
-
-		this.shadowDOM = this.attachShadow({
-			mode: 'open',
-		});
 	}
 
 	connectedCallback() {
 		this._renderTemplate();
 		this._closeModal(this.parentElement);
 		this._submitReview(this.parentElement);
-		StylesHelper.init({
-			stylesText,
-			shadowRoot: this.shadowRoot,
-		});
 	}
 
 	set restaurant(restaurant) {
@@ -26,7 +16,7 @@ class ReviewModal extends HTMLElement {
 	}
 
 	_renderTemplate() {
-		this.shadowDOM.innerHTML = `
+		this.innerHTML = `
 		<div class="modal__inner">
 			<div class="modal__header">
 				<h3>Add Your Review</h3>
@@ -48,7 +38,7 @@ class ReviewModal extends HTMLElement {
 	}
 
 	_closeModal(modal) {
-		const buttonCloseModal = this.shadowDOM.querySelector('#btn-close-modal');
+		const buttonCloseModal = this.querySelector('#btn-close-modal');
 		buttonCloseModal.addEventListener('click', () => {
 			modal.style.display = 'none';
 		});
@@ -61,9 +51,9 @@ class ReviewModal extends HTMLElement {
 	}
 
 	_submitReview(modal) {
-		const buttonSubmit = this.shadowDOM.querySelector('#btn-submit-modal');
-		const inputName = this.shadowDOM.querySelector('#name');
-		const inputReview = this.shadowDOM.querySelector('#review');
+		const buttonSubmit = this.querySelector('#btn-submit-modal');
+		const inputName = this.querySelector('#name');
+		const inputReview = this.querySelector('#review');
 
 		buttonSubmit.addEventListener('click', async () => {
 			if (inputName.value === '' || inputName.value === null) {

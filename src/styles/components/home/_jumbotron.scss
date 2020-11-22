@@ -1,16 +1,12 @@
-@import '../../utils/variables';
-@import '../../utils/mixins';
-
 .jumbotron {
 	height: calc(100vh - 7rem);
 	width: 100%;
 	margin-top: 7rem;
-	background-image: url('/images/heros/hero.jpg');
+	background-image: url('/src/public/images/heros/hero.jpg');
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
 
-	// Jumbotron inner
 	&__inner {
 		width: 100%;
 		height: 100%;
@@ -22,7 +18,6 @@
 		background-color: rgba($color: $dark, $alpha: 0.8);
 	}
 
-	// Jumbotron title
 	&__title {
 		font-size: 2.6rem;
 		font-weight: 400;
@@ -37,7 +32,6 @@
 		}
 	}
 
-	// Jumbotron tagline
 	&__tagline {
 		font-size: 1.4rem;
 		font-weight: 400;

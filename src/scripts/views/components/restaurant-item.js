@@ -1,28 +1,18 @@
 import CONFIG from '../../globals/config';
-import stylesText from '../../../styles/components/restaurant-item.scss';
-import StylesHelper from '../../utils/styles-helper';
 
 class Restaurant extends HTMLElement {
 	constructor() {
 		super();
-
-		this.shadowDOM = this.attachShadow({
-			mode: 'open',
-		});
 	}
 
 	set restaurants(restaurants) {
 		this._restaurants = restaurants;
-		StylesHelper.init({
-			stylesText,
-			shadowRoot: this.shadowRoot,
-		});
 		this._renderTemplate();
 	}
 
 	_renderTemplate() {
 		this._restaurants.forEach((restaurant) => {
-			this.shadowDOM.innerHTML += `
+			this.innerHTML += `
         <article class="restaurant">
           <div class="restaurant__thumbnail">
 						<img class="restaurant__image" 

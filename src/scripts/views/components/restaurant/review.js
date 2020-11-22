@@ -1,30 +1,20 @@
-import stylesText from '../../../../styles/components/restaurant/review.scss';
-import StylesHelper from '../../../utils/styles-helper';
 import './review-modal';
 
 class Review extends HTMLElement {
 	constructor() {
 		super();
-
-		this.shadowDOM = this.attachShadow({
-			mode: 'open',
-		});
 	}
 
 	set restaurant(restaurant) {
 		this._restaurant = restaurant;
 		this._renderTemplate();
-		StylesHelper.init({
-			stylesText,
-			shadowRoot: this.shadowRoot,
-		});
-		this._openModal(this.shadowDOM.querySelector('.review__modal'));
+		this._openModal(this.querySelector('.review__modal'));
 		this._renderData();
 		this._renderReviewModal();
 	}
 
 	_renderTemplate() {
-		this.shadowDOM.innerHTML = `
+		this.innerHTML = `
       <section class="review">
         <h2 class="review__title">Our Reviews</h2>
 				<div class="review__list">
@@ -41,7 +31,7 @@ class Review extends HTMLElement {
 	}
 
 	_renderData() {
-		const reviewListContainer = this.shadowDOM.querySelector('.review__list');
+		const reviewListContainer = this.querySelector('.review__list');
 
 		this._restaurant.customerReviews.forEach((review) => {
 			reviewListContainer.innerHTML += `
@@ -63,14 +53,14 @@ class Review extends HTMLElement {
 	}
 
 	_renderReviewModal() {
-		const reviewModalContainer = this.shadowDOM.querySelector('.review__modal');
+		const reviewModalContainer = this.querySelector('.review__modal');
 		const reviewModalElement = document.createElement('review-modal');
 		reviewModalElement.restaurant = this._restaurant;
 		reviewModalContainer.appendChild(reviewModalElement);
 	}
 
 	_openModal(modal) {
-		const buttonOpenModal = this.shadowDOM.querySelector('#btn-open-modal');
+		const buttonOpenModal = this.querySelector('#btn-open-modal');
 		buttonOpenModal.addEventListener('click', () => {
 			modal.style.display = 'block';
 		});

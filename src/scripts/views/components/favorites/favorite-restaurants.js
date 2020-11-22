@@ -1,24 +1,13 @@
-import stylesTextList from '../../../../styles/components/home/restaurants-list.scss';
-import stylesTextItem from '../../../../styles/components/restaurant-item.scss';
-import stylesTextSpinner from '../../../../styles/components/spinner.scss';
-import StylesHelper from '../../../utils/styles-helper';
 import '../restaurant-item';
 import '../renderEmpty';
 
 class FavoriteRestaurants extends HTMLElement {
 	constructor() {
 		super();
-		this.shadowDOM = this.attachShadow({
-			mode: 'open',
-		});
 	}
 
 	connectedCallback() {
 		this._renderTemplate();
-		StylesHelper.init({
-			stylesText: [stylesTextList, stylesTextItem, stylesTextSpinner],
-			shadowRoot: this.shadowRoot,
-		});
 	}
 
 	set restaurants(restaurants) {
@@ -27,21 +16,10 @@ class FavoriteRestaurants extends HTMLElement {
 	}
 
 	_renderTemplate() {
-		this.shadowDOM.innerHTML = `
-			<style>
-				.restaurants {
-					margin-top: 7rem;
-					margin-bottom: 5rem;
-				}
-
-				.restaurants__label {
-					margin: 0;
-				}
-			</style>
-
-      <section class="restaurants">
-        <h2 class="restaurants__label">Favorite Restaurants</h2>
-        <div class="restaurants__list" id="favorite-list">
+		this.innerHTML = `
+      <section class="restaurants" id="favorite__restaurants">
+        <h2 class="restaurants__label" id="favorite__label">Favorite Restaurants</h2>
+        <div class="restaurants__list" id="favorite__list">
         
         </div>
       </section>
@@ -49,7 +27,7 @@ class FavoriteRestaurants extends HTMLElement {
 	}
 
 	_renderData() {
-		const favoriteListContainer = this.shadowDOM.querySelector('#favorite-list');
+		const favoriteListContainer = this.querySelector('#favorite__list');
 		const restaurantItemContainer = document.createElement('restaurant-item');
 		const renderEmptyContainer = document.createElement('render-empty');
 

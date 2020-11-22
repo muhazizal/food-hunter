@@ -19,23 +19,7 @@ module.exports = {
 		rules: [
 			// Style loader
 			{
-				test: /\.s[ac]ss$/i,
-				exclude: path.resolve(__dirname, 'src/styles/main.scss'),
-				use: [
-					'raw-loader',
-					{
-						loader: 'sass-loader',
-						options: {
-							sassOptions: {
-								includePaths: [path.resolve(__dirname, 'node_modules')],
-							},
-						},
-					},
-				],
-			},
-			{
 				test: /\.(s[ac]ss|css)$/i,
-				exclude: path.resolve(__dirname, 'src/styles/components'),
 				use: [
 					'style-loader',
 					'css-loader',

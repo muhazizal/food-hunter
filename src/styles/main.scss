@@ -1,5 +1,6 @@
 @import './utils/variables';
 @import './utils/mixins';
+@import './utils/mdi';
 
 :root {
 	font-size: 62.5%;
@@ -27,9 +28,6 @@ body {
 	background-color: $light;
 }
 
-// Navbar style
-@import './utils/navigation';
-
 main {
 	width: 100%;
 }
@@ -41,27 +39,17 @@ footer {
 	font-family: 'Zilla Slab', serif;
 }
 
-.material-icons {
-	font-family: 'Material Icons';
-	font-weight: normal;
-	font-style: normal;
-	font-size: 24px; /* Preferred icon size */
-	display: inline-block;
-	line-height: 1;
-	text-transform: none;
-	letter-spacing: normal;
-	word-wrap: normal;
-	white-space: nowrap;
-	direction: ltr;
-
-	/* Support for all WebKit browsers. */
-	-webkit-font-smoothing: antialiased;
-	/* Support for Safari and Chrome. */
-	text-rendering: optimizeLegibility;
-
-	/* Support for Firefox. */
-	-moz-osx-font-smoothing: grayscale;
-
-	/* Support for IE. */
-	font-feature-settings: 'liga';
-}
+// Components
+@import './components/navigation';
+@import './components/render-failed';
+@import './components/restaurant-item';
+@import './components/spinner';
+// Home
+@import './components/home/jumbotron';
+@import './components/home/newsletter';
+@import './components/home/restaurants-list';
+// Restaurant
+@import './components/restaurant/menu';
+@import './components/restaurant/profile';
+@import './components/restaurant/review-modal';
+@import './components/restaurant/review';

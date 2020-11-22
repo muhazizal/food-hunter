@@ -1,30 +1,17 @@
-import stylesText from '../../../../styles/components/restaurant/menu.scss';
-import StylesHelper from '../../../utils/styles-helper';
-
 class Menu extends HTMLElement {
 	constructor() {
 		super();
-
-		this.shadowDOM = this.attachShadow({
-			mode: 'open',
-		});
 	}
 
 	set menu(menu) {
 		this._menu = menu;
 		this._renderTemplate();
-
-		StylesHelper.init({
-			stylesText,
-			shadowRoot: this.shadowRoot,
-		});
-
 		this._renderFoods();
 		this._renderDrinks();
 	}
 
 	_renderTemplate() {
-		this.shadowDOM.innerHTML = `
+		this.innerHTML = `
 			<section class="menu">
 				<div class="menu__inner">
 					<h2 class="menu__title">Our Menus</h2>
@@ -44,7 +31,7 @@ class Menu extends HTMLElement {
 	}
 
 	_renderFoods() {
-		const foodList = this.shadowDOM.querySelector('.food__list');
+		const foodList = this.querySelector('.food__list');
 
 		this._menu.foods.forEach((food) => {
 			foodList.innerHTML += `
@@ -54,7 +41,7 @@ class Menu extends HTMLElement {
 	}
 
 	_renderDrinks() {
-		const drinkList = this.shadowDOM.querySelector('.drink__list');
+		const drinkList = this.querySelector('.drink__list');
 
 		this._menu.drinks.forEach((drink) => {
 			drinkList.innerHTML += `

@@ -1,14 +1,8 @@
 import CONFIG from '../../../globals/config';
-import stylesTextProfile from '../../../../styles/components/restaurant/profile.scss';
-import stylesTextSpinner from '../../../../styles/components/spinner.scss';
-import StylesHelper from '../../../utils/styles-helper';
 
 class RestaurantProfile extends HTMLElement {
 	constructor() {
 		super();
-		this.shadowDOM = this.attachShadow({
-			mode: 'open',
-		});
 	}
 
 	connectedCallback() {
@@ -18,15 +12,11 @@ class RestaurantProfile extends HTMLElement {
 	set restaurant(restaurant) {
 		this._restaurant = restaurant;
 		this._renderData();
-		StylesHelper.init({
-			stylesText: [stylesTextProfile, stylesTextSpinner],
-			shadowRoot: this.shadowRoot,
-		});
 		this._restaurantCategory();
 	}
 
 	_renderTemplate() {
-		this.shadowDOM.innerHTML = `
+		this.innerHTML = `
 			<section class="profile">
 				<div class="profile__thumbnail">
 
@@ -42,8 +32,8 @@ class RestaurantProfile extends HTMLElement {
 	}
 
 	_renderData() {
-		const profileThumbnail = this.shadowDOM.querySelector('.profile__thumbnail');
-		const profileContent = this.shadowDOM.querySelector('.profile__content');
+		const profileThumbnail = this.querySelector('.profile__thumbnail');
+		const profileContent = this.querySelector('.profile__content');
 
 		profileThumbnail.innerHTML = `
 			<img class="profile__image"
@@ -69,7 +59,7 @@ class RestaurantProfile extends HTMLElement {
 	}
 
 	_restaurantCategory() {
-		const restaurantCategory = this.shadowDOM.querySelector('.profile__category');
+		const restaurantCategory = this.querySelector('.profile__category');
 		let i = 1;
 
 		this._restaurant.categories.forEach((menu) => {

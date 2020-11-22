@@ -1,4 +1,3 @@
-// Link to main content
 .skip-link {
 	position: absolute;
 	top: -4.5rem;
@@ -13,12 +12,10 @@
 	top: 0;
 }
 
-// Header
 .header {
 	position: relative;
 	z-index: 100;
 
-	// Header brand
 	&__brand {
 		width: 100%;
 		display: flex;
@@ -32,7 +29,6 @@
 			justify-content: start;
 		}
 
-		// Brand title
 		.brand__title {
 			font-family: 'Zilla Slab', serif;
 			font-weight: 300;
@@ -46,7 +42,6 @@
 			}
 		}
 
-		// Navigation toggle
 		.nav__toggle {
 			position: absolute;
 			top: 0.75rem;
@@ -75,7 +70,6 @@
 				transition: 0.3s;
 			}
 
-			// On change
 			&.change {
 				margin-top: 0.2rem;
 			}
@@ -97,14 +91,12 @@
 		}
 	}
 
-	// Header navigation
 	&__nav {
 		width: 100%;
 		background-color: $light;
 		display: grid;
 		align-items: center;
 
-		// Navigation list
 		.nav__list {
 			list-style-type: none;
 			display: flex;
@@ -125,11 +117,9 @@
 				display: none;
 			}
 
-			// Navigation item
 			.nav__item {
 				text-transform: uppercase;
 
-				// List anchor
 				& a {
 					font-size: 1.4rem;
 					font-weight: 600;
@@ -154,7 +144,6 @@
 			}
 		}
 
-		// Navigation drawer
 		.nav__drawer {
 			position: fixed;
 			top: 7rem;
@@ -174,18 +163,15 @@
 				display: none;
 			}
 
-			// On open
 			&.open {
 				transform: translate(100%, 0);
 			}
 
-			// Drawer item
 			&__item {
 				text-transform: uppercase;
 				padding: 1.25rem;
 				list-style-type: none;
 
-				// Item anchor
 				& a {
 					font-size: 1.4rem;
 					font-weight: 600;

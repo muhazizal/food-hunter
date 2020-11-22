@@ -11,8 +11,8 @@ const Restaurant = {
 
 	async afterRender() {
 		const favoritesRestaurants = document.querySelector('favorite-restaurants');
-		const spinnerContainer = favoritesRestaurants.shadowRoot.querySelector('.restaurants__label');
-		const favoritesListContainer = favoritesRestaurants.shadowRoot.querySelector('.restaurants__list');
+		const spinnerContainer = document.querySelector('.restaurants__label');
+		const favoritesListContainer = document.querySelector('.restaurants__list');
 
 		spinnerContainer.classList.add('spinner');
 
