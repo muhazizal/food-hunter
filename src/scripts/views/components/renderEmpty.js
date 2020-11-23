@@ -11,7 +11,7 @@ class RenderEmpty extends HTMLElement {
 		this.innerHTML = `
       <div class="render__error">
         <img src="/images/illustrators/data-empty.svg" alt="render-empty">
-        <p>"You haven't saved any restaurants"</p>
+        <p>You have not saved any restaurants</p>
       </div>
     `;
 	}

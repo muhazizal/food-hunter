@@ -11,7 +11,7 @@ class RenderError extends HTMLElement {
 		this.innerHTML = `
       <div class="render__error">
         <img src="/images/illustrators/data-error.svg" alt="render-error">
-        <p>"There is an error in rendering the data"</p>
+        <p>There is an error in rendering the data</p>
       </div>
     `;
 	}

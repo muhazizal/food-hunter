@@ -10,7 +10,8 @@ class Jumbotron extends HTMLElement {
 
 	_renderTemplate() {
 		this.innerHTML = `
-      <section class="jumbotron">
+			<section class="jumbotron">
+				<img class="jumbotron__img" src="/images/heros/hero.jpg" alt="Restaurant Image" />
         <div class="jumbotron__inner">
           <h2 class="jumbotron__title">Best Restaurants Provide Good Foods</h2>
           <p class="jumbotron__tagline">
