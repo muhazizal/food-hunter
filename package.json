@@ -7,7 +7,8 @@
 		"dev": "webpack-dev-server --config webpack.dev.js --open",
 		"build": "webpack --config webpack.prod.js",
 		"test": "karma start",
-		"e2e": "codeceptjs run --steps"
+		"e2e": "codeceptjs run --steps",
+		"build-image": "node sharp.js"
 	},
 	"keywords": [],
 	"author": "muhazizal <muhazizal.26@gmail.com>",
@@ -39,6 +40,7 @@
 		"raw-loader": "^4.0.1",
 		"sass": "^1.26.10",
 		"sass-loader": "^10.0.1",
+		"sharp": "^0.26.3",
 		"style-loader": "^1.2.1",
 		"url-loader": "^4.1.0",
 		"webpack": "^4.43.0",
