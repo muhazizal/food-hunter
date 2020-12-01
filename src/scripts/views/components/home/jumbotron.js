@@ -11,12 +11,25 @@ class Jumbotron extends HTMLElement {
 	_renderTemplate() {
 		this.innerHTML = `
 			<section class="jumbotron">
-				<img class="jumbotron__img" 
-					srcset="/images/heros/hero-small.jpg 480w, /images/heros/hero-large.jpg 800w"
-					sizes="(max-width: 600px) 480px, 100%"
-					src="/images/heros/hero-large.jpg"
-					alt="Restaurant Image"  
-				/>
+				<picture>
+					<source class="jumbotron__img"
+						type="image/webp"
+						srcset="/images/heros/hero.webp"
+					>
+					<source class="jumbotron__img"
+						type="image/jpg"
+						srcset="/images/heros/hero-small.jpg 480w, /images/heros/hero-large.jpg 800w"
+						sizes="(max-width: 600px) 480px, 100%"
+						src="/images/heros/hero-large.jpg"
+						alt="Restaurant Image"
+					>
+					<img class="jumbotron__img" 
+						srcset="/images/heros/hero-small.jpg 480w, /images/heros/hero-large.jpg 800w"
+						sizes="(max-width: 600px) 480px, 100%"
+						src="/images/heros/hero-large.jpg"
+						alt="Restaurant Image"  
+					/>
+				</picture>
         <div class="jumbotron__inner">
           <h2 class="jumbotron__title">Best Restaurants Provide Good Foods</h2>
           <p class="jumbotron__tagline">

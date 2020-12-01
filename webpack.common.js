@@ -1,6 +1,5 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 const dartSass = require('sass');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
 const WorkboxWebpackPlugin = require('workbox-webpack-plugin');
@@ -13,7 +12,7 @@ module.exports = {
 		vendors: ['webpack-material-design-icons'],
 	},
 	output: {
-		filename: '[name].js',
+		filename: '[name].bundle.js',
 		path: path.resolve(__dirname, 'dist'),
 	},
 	module: {
@@ -48,17 +47,6 @@ module.exports = {
 		new HtmlWebpackPlugin({
 			template: path.resolve(__dirname, 'src/templates/index.html'),
 			filename: 'index.html',
-		}),
-		new CopyWebpackPlugin({
-			patterns: [
-				{
-					from: path.resolve(__dirname, 'src/public'),
-					to: path.resolve(__dirname, 'dist/'),
-					globOptions: {
-						ignore: ['**/images/heros/**'],
-					},
-				},
-			],
 		}),
 		new WebpackPwaManifest({
 			filename: 'manifest.json',
