@@ -1,3 +1,4 @@
+const isDevelopment = process.env.NODE_ENV === ' development';
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const dartSass = require('sass');
@@ -5,6 +6,7 @@ const WebpackPwaManifest = require('webpack-pwa-manifest');
 const WorkboxWebpackPlugin = require('workbox-webpack-plugin');
 const ImageminWebpackPlugin = require('imagemin-webpack-plugin').default;
 const ImageminMozjpeg = require('imagemin-mozjpeg');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
 	entry: {
@@ -20,7 +22,7 @@ module.exports = {
 			{
 				test: /\.(s[ac]ss|css)$/i,
 				use: [
-					'style-loader',
+					isDevelopment ? 'style-loader' : MiniCssExtractPlugin.loader,
 					'css-loader',
 					{
 						loader: 'sass-loader',
@@ -68,7 +70,7 @@ module.exports = {
 			icons: [
 				{
 					src: path.resolve('./src/public/images/favicon.png'),
-					sizes: [96, 128, 192, 256, 384, 512],
+					sizes: [96, 128, 144, 192, 256, 384, 512],
 					destination: path.join('images', 'icons', 'android'),
 					purpose: 'maskable',
 				},
@@ -100,5 +102,6 @@ module.exports = {
 				}),
 			],
 		}),
+		new MiniCssExtractPlugin(),
 	],
 };

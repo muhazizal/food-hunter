@@ -4,7 +4,7 @@ const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const path = require('path');
 const ImageminWebpWebpackPlugin = require('imagemin-webp-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const common = require('./webpack.common');
 
 module.exports = merge(common, {
@@ -45,8 +45,29 @@ module.exports = merge(common, {
 					priority: -20,
 					reuseExistingChunk: true,
 				},
+				styles: {
+					name: 'styles',
+					test: /\.css$/,
+					chunks: 'all',
+					enforce: true,
+				},
 			},
 		},
+		minimize: true,
+		minimizer: [
+			new CssMinimizerPlugin({
+				include: '/src/styles/main.scss',
+				minimizerOptions: {
+					preset: [
+						'default',
+						{
+							discardComments: { removeAll: true },
+						},
+					],
+				},
+				parallel: true,
+			}),
+		],
 	},
 	plugins: [
 		new CleanWebpackPlugin(),
