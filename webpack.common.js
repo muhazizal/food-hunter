@@ -70,7 +70,7 @@ module.exports = {
 			icons: [
 				{
 					src: path.resolve('./src/public/images/favicon.png'),
-					sizes: [96, 128, 144, 192, 256, 384, 512],
+					sizes: [96, 128, 192, 256, 384, 512],
 					destination: path.join('images', 'icons', 'android'),
 					purpose: 'maskable',
 				},
