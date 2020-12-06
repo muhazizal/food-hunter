@@ -15,10 +15,10 @@ Scenario('adding one review', async (I) => {
 	I.seeElement('#btn-open-modal');
 	I.click('#btn-open-modal');
 
-	I.seeElement('#btn-submit-modal');
 	I.fillField('name', 'muhazizal');
 	I.fillField('review', 'delicious');
 	const customerNameInput = 'muhazizal';
+	I.seeElement('#btn-submit-modal');
 	I.click('#btn-submit-modal');
 
 	I.refreshPage();
