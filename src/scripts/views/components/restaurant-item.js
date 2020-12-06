@@ -16,7 +16,7 @@ class Restaurant extends HTMLElement {
         <article class="restaurant">
           <div class="restaurant__thumbnail">
 						<img class="restaurant__image lazyload" 
-							src="${CONFIG.RESTAURANT_PICTURES.MEDIUM(restaurant.pictureId)}" 
+							data-src="${CONFIG.RESTAURANT_PICTURES.MEDIUM(restaurant.pictureId)}" 
 							alt="${restaurant.name} Image" 
 						/>
             <p class="restaurant__city">${restaurant.city}</p>
