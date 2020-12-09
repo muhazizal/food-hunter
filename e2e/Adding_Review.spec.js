@@ -7,8 +7,10 @@ Before((I) => {
 });
 
 Scenario('adding one review', async (I) => {
+	I.scrollTo('.restaurants__label');
+	I.wait(2);
+	
 	I.seeElement('.restaurant__name a');
-
 	const firstRestaurant = locate('.restaurant__name a').first();
 	I.click(firstRestaurant);
 
@@ -19,7 +21,9 @@ Scenario('adding one review', async (I) => {
 	I.fillField('review', 'delicious');
 	const customerNameInput = 'muhazizal';
 	I.seeElement('#btn-submit-modal');
+	I.amAcceptingPopups();
 	I.click('#btn-submit-modal');
+	I.acceptPopup();
 
 	I.refreshPage();
 	I.refreshPage();

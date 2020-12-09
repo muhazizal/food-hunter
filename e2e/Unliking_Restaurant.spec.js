@@ -9,6 +9,8 @@ Before(async (I) => {
 
 	const firstRestaurant = locate('.restaurant__name a').first();
 	const firstRestaurantTitle = await I.grabTextFrom(firstRestaurant);
+	I.scrollTo('.restaurants__label');
+	I.wait(2);
 	I.click(firstRestaurant);
 
 	I.seeElement('.btn--favorite');
@@ -24,8 +26,10 @@ Before(async (I) => {
 Scenario('Unliking a restaurant', async (I) => {
 	I.amOnPage('/#/favorites');
 
-	I.seeElement('.restaurant__name a');
+	I.scrollTo('.restaurants__label');
+	I.wait(2);
 
+	I.seeElement('.restaurant__name a');
 	const firstRestaurant = locate('.restaurant__name a').first();
 	I.click(firstRestaurant);
 
