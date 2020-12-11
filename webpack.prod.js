@@ -90,6 +90,10 @@ module.exports = merge(common, {
 			],
 			overrideExtension: true,
 		}),
-		new BundleAnalyzerPlugin(),
+		new BundleAnalyzerPlugin({
+			analyzerMode: 'disabled',
+			generateStatsFile: true,
+			statsOptions: { source: false },
+		}),
 	],
 });
