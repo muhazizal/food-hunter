@@ -4,20 +4,20 @@
 	color: $dark;
 
 	@include minWidth(601px) {
-		display: flex;
-		flex-wrap: wrap;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-	}
-
-	@include minWidth(1026px) {
-		flex-direction: row;
+		padding: 0 3rem;
+		display: grid;
 		align-items: flex-start;
+		justify-content: center;
+		grid-template-columns: auto auto;
+		grid-template-rows: auto auto;
+		grid-template-areas:
+			'profileThumbnail profileContent'
+			'profileThumbnail profileAction';
 	}
 
 	&__thumbnail {
 		width: 100%;
+		grid-area: profileThumbnail;
 
 		@include minWidth(601px) {
 			padding-top: 5rem;
@@ -35,11 +35,13 @@
 	}
 
 	&__action {
-		margin-top: 1.8rem;
+		margin-top: 2rem;
 		text-align: center;
+		grid-area: profileAction;
 
-		@include minWidth(1026px) {
-			margin-top: 5rem;
+		@include minWidth(601px) {
+			margin: 0 0 0 1.2rem;
+			text-align: center;
 		}
 
 		.btn--favorite {
@@ -73,14 +75,11 @@
 		padding: 0 2rem;
 		margin: 1rem 0;
 		position: relative;
+		grid-area: profileContent;
 
 		@include minWidth(601px) {
-			margin: 1.8rem 0 0 0;
-			padding: 0 0 0 1rem;
-		}
-
-		@include minWidth(769px) {
-			padding: 0 0 0 2rem;
+			margin: 5rem 0 0 0;
+			padding: 0 0 0 1.2rem;
 		}
 
 		@include minWidth(1026px) {
