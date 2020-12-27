@@ -19,11 +19,14 @@
 	}
 
 	&__list {
+		display: flex;
+		justify-content: center;
+
 		restaurant-item {
 			display: grid;
 			grid-template-columns: 1fr;
 			justify-items: center;
-			gap: 2rem;
+			gap: 3rem;
 
 			@include minWidth(601px) {
 				grid-template-columns: 1fr 1fr;

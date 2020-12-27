@@ -16,16 +16,16 @@ const Home = {
 	async afterRender() {
 		const homeRestaurants = document.querySelector('home-restaurants');
 		const restaurantListContainer = document.querySelector('.restaurants__list');
-		const spinnerContainer = document.querySelector('.restaurants__label');
+		// const spinnerContainer = document.querySelector('.restaurants__label');
 
-		spinnerContainer.classList.add('spinner');
+		// spinnerContainer.classList.add('spinner');
 
 		try {
 			const dataRestaurants = await RestaurantsSource.restaurantsList();
 			homeRestaurants.restaurants = dataRestaurants;
-			spinnerContainer.classList.remove('spinner');
+			// spinnerContainer.classList.remove('spinner');
 		} catch (error) {
-			spinnerContainer.classList.remove('spinner');
+			// spinnerContainer.classList.remove('spinner');
 			const renderErrorElement = document.createElement('render-error');
 			restaurantListContainer.appendChild(renderErrorElement);
 			console.log(error);
