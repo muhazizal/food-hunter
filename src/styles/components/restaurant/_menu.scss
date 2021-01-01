@@ -25,11 +25,7 @@
 		}
 
 		@include minWidth(769px) {
-			max-width: 70.5rem;
-		}
-
-		@include minWidth(1200px) {
-			margin-right: 2.4rem;
+			max-width: 78.3rem;
 		}
 	}
 
@@ -57,7 +53,6 @@
 
 		ul {
 			margin: 0;
-			list-style: circle;
 			padding-left: 3.2rem;
 
 			li {
@@ -67,6 +62,10 @@
 	}
 
 	&__foods {
+		ul {
+			list-style-image: url('/src/public/images/icons/food.svg');
+		}
+
 		@include minWidth(550px) {
 			grid-area: foods;
 
@@ -77,6 +76,10 @@
 	}
 
 	&__drinks {
+		ul {
+			list-style-image: url('/src/public/images/icons/drink.svg');
+		}
+
 		@include minWidth(550px) {
 			grid-area: drinks;
 		}

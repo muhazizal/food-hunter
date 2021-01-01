@@ -19,9 +19,7 @@ class FavoriteRestaurants extends HTMLElement {
 		this.innerHTML = `
       <section class="restaurants" id="favorite__restaurants">
         <h2 class="restaurants__label" id="favorite__label">Favorite Restaurants</h2>
-        <div class="restaurants__list" id="favorite__list">
-        
-        </div>
+        <div class="restaurants__list" id="favorite__list"></div>
       </section>
 		`;
 	}

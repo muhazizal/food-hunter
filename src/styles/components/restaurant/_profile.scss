@@ -26,11 +26,17 @@
 		}
 	}
 
+	&__thumbnail:empty {
+		@extend %spinner-loading;
+		margin-top: 5rem;
+	}
+
 	&__image {
 		width: 100%;
 
 		@include minWidth(601px) {
 			max-width: 50rem;
+			border-radius: 0.5rem;
 		}
 	}
 

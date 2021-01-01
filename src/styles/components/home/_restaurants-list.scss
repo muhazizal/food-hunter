@@ -44,11 +44,16 @@
 }
 
 #favorite__restaurants {
+	min-height: calc(100vh - 18rem);
 	margin-top: 7rem;
 	margin-bottom: 5rem;
 
 	#favorite__label {
 		margin: 0;
 		padding-top: 5rem;
+	}
+
+	#favorite__list:empty {
+		@extend %spinner-loading;
 	}
 }

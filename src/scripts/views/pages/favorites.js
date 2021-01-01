@@ -11,20 +11,14 @@ const Restaurant = {
 
 	async afterRender() {
 		const favoritesRestaurants = document.querySelector('favorite-restaurants');
-		const spinnerContainer = document.querySelector('.restaurants__label');
 		const favoritesListContainer = document.querySelector('.restaurants__list');
-
-		spinnerContainer.classList.add('spinner');
 
 		try {
 			const dataRestaurants = await FavoriteRestaurants.getAllRestaurants();
 			favoritesRestaurants.restaurants = dataRestaurants;
-			spinnerContainer.classList.remove('spinner');
 		} catch (error) {
-			spinnerContainer.classList.remove('spinner');
 			const renderErrorElement = document.createElement('render-error');
 			favoritesListContainer.appendChild(renderErrorElement);
-			console.log(error);
 		}
 	},
 };

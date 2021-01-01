@@ -18,15 +18,9 @@ class RestaurantProfile extends HTMLElement {
 	_renderTemplate() {
 		this.innerHTML = `
 			<section class="profile">
-				<div class="profile__thumbnail">
-
-				</div>
-				<div class="profile__content">
-					
-				</div>
-				<div class="profile__action">
-
-				</div>
+				<div class="profile__thumbnail"></div>
+				<div class="profile__content"></div>
+				<div class="profile__action"></div>
 			</section>
 		`;
 	}

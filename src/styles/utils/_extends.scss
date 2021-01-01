@@ -1,13 +1,11 @@
-.spinner:before {
+/* Spinner Loading */
+
+%spinner-loading {
 	content: '';
 	box-sizing: border-box;
-	position: absolute;
-	top: 12rem;
-	left: 50%;
+	margin: 0 auto;
 	height: 6rem;
 	width: 6rem;
-	margin-top: 2.5rem;
-	margin-left: -3rem;
 	border-radius: 50%;
 	border: 0.2rem solid transparent;
 	border-top-color: $light-primary;

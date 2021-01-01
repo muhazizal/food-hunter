@@ -1,6 +1,7 @@
 @import './utils/variables';
 @import './utils/mixins';
 @import './utils/mdi';
+@import './utils/extends';
 
 :root {
 	font-size: 62.5%;
@@ -43,7 +44,6 @@ footer {
 @import './components/navigation';
 @import './components/render-failed';
 @import './components/restaurant-item';
-@import './components/spinner';
 @import './components/skeleton-loading';
 // Home
 @import './components/home/jumbotron';

@@ -22,16 +22,12 @@ const Restaurant = {
 		const restaurantMenu = document.querySelector('restaurant-menu');
 		const restaurantReview = document.querySelector('restaurant-review');
 		const mainContainer = document.querySelector('#main-content');
-		const spinnerContainer = document.querySelector('.profile');
-
-		spinnerContainer.classList.add('spinner');
 
 		try {
 			const dataRestaurant = await RestaurantsSource.restaurantDetail(url.id);
 			restaurantProfile.restaurant = dataRestaurant;
 			restaurantMenu.menu = dataRestaurant.menus;
 			restaurantReview.restaurant = dataRestaurant;
-			spinnerContainer.classList.remove('spinner');
 
 			LikeButtonPresenter.init({
 				likeButtonContainer: document.querySelector('.profile__action'),
@@ -39,9 +35,9 @@ const Restaurant = {
 				favoriteRestaurants: FavoriteRestaurants,
 			});
 		} catch (error) {
-			spinnerContainer.classList.remove('spinner');
 			const renderErrorElement = document.createElement('render-error');
 			mainContainer.appendChild(renderErrorElement);
+
 			document.querySelector('.render__error').style.marginTop = '10rem';
 		}
 	},
