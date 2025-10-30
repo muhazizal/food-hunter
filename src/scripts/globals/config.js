@@ -1,5 +1,5 @@
 const CONFIG = {
-	BASE_URL: ' https://restaurant-api.dicoding.dev/',
+	BASE_URL: 'https://restaurant-api.dicoding.dev/',
 	RESTAURANT_PICTURES: {
 		SMALL: (id) => `https://restaurant-api.dicoding.dev/images/small/${id}`,
 		MEDIUM: (id) => `https://restaurant-api.dicoding.dev/images/medium/${id}`,
@@ -10,7 +10,6 @@ const CONFIG = {
 	DATABASE_NAME: 'favorite-restaurants-database',
 	DATABASE_VERSION: 1,
 	OBJECT_STORE_NAME: 'restaurants',
-	// WEB_SOCKET_SERVER: ,
-};
+}
 
-export default CONFIG;
+export default CONFIG
