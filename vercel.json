@@ -1,0 +1,8 @@
+{
+	"rewrites": [
+		{
+			"source": "/api/(.*)",
+			"destination": "https://restaurant-api.dicoding.dev/$1"
+		}
+	]
+}
